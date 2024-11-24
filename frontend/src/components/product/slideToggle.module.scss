@@ -1,0 +1,52 @@
+.content {
+    overflow: hidden; /* Giúp ẩn nội dung khi nó không hiển thị */
+}
+
+.slide-enter {
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 300ms ease-in, opacity 300ms ease-in;
+}
+
+.slide-enter-active {
+    max-height: 300px; /* Hoặc giá trị lớn hơn tùy thuộc vào nội dung của bạn */
+    opacity: 1;
+}
+
+.slide-exit {
+    // max-height: 100px; /* Hoặc giá trị lớn hơn tùy thuộc vào nội dung của bạn */
+    opacity: 1;
+    transition: max-height 300ms ease-out, opacity 300ms ease-out;
+}
+
+.slide-exit-active {
+    max-height: 0;
+    opacity: 0;
+}
+
+.description__item {
+    font-size: 23px;
+    margin-top: 20px;
+    cursor: pointer;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #d9d9d9;
+}
+
+.item__icon {
+    float: right;
+}
+
+.content {
+    margin: 10px 20px 10px;
+}
+
+.content p {
+    font-size: 23px;
+    font-weight: 300;
+    line-height: 130%;
+}
+
+.regular {
+    font-weight: normal;
+}
+

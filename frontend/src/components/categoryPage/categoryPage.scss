@@ -1,0 +1,110 @@
+.category-page {
+  padding: 20px;
+  background-color: #ffe7d6;
+  color: #5a3c2b;
+  margin: 150px auto; /* Canh giữa bảng với phần còn lại */
+  margin-left: auto; /* Canh giữa theo chiều ngang */
+  margin-right: 150px; /* Canh giữa theo chiều ngang */
+  width: 80%; /* Thu hẹp bảng theo chiều ngang */
+  max-width: 1900px; /* Đặt giới hạn tối đa */
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+    h1 {
+      font-size: 35px; /* Tăng kích thước chữ của tiêu đề */
+      font-weight: bold;
+    }
+
+    .create-category {
+      font-size: 16px; /* Tăng kích thước chữ của nút */
+      color: #5a3c2b;
+      background-color: #fff;
+      padding: 10px 14px; /* Tăng kích thước nút */
+      border: 1px solid #5a3c2b;
+      border-radius: 4px; /* Thêm bo tròn nhẹ */
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ffe7d6;
+      }
+    }
+  }
+
+  .tabs {
+    margin-bottom: 20px;
+
+    .tab {
+      padding: 10px 20px;
+      background-color: #ffe7d6;
+      border: 1px solid #f5b7b7;
+      border-radius: 4px; /* Thêm bo góc nhẹ */
+      cursor: pointer;
+
+      &.active {
+        font-weight: bold;
+        background-color: #ffe7d6; /* Làm nổi bật tab được chọn */
+        border-bottom: none;
+      }
+    }
+  }
+
+  .controls {
+    margin-bottom: 20px;
+
+    .search {
+      display: flex;
+      align-items: center;
+
+      input {
+        flex-grow: 1;
+        border: 1px solid #5a3c2b;
+        padding: 10px; /* Tăng padding để dễ nhìn */
+        border-radius: 0; /* Thêm bo góc */
+        background-color: #ffe7d6;
+        font-size: 15px; /* Tăng kích thước chữ */
+      }
+
+      button {
+        border-radius: 0;
+        background: none;
+        border: none;
+        background-color: #5a3c2b;
+        color: #ffe7d6;
+        padding: 10px 14px; /* Tăng kích thước nút */
+        cursor: pointer;
+
+        svg {
+          font-size: 24px; /* Tăng kích thước icon */
+        }
+      }
+    }
+  }
+
+  .category-table {
+    width: 100%;
+    border-collapse: collapse;
+
+    th,
+    td {
+      text-align: left;
+      padding: 14px; /* Tăng padding */
+      border-bottom: 1px solid #f39d9d;
+      vertical-align: top;
+      font-size: 20px; /* Tăng kích thước chữ */
+    }
+
+    th {
+      font-weight: bold;
+      background-color: #ffe7d6;
+      font-size: 24px;
+    }
+
+    tr:hover {
+      background-color: #f7c6d3;
+    }
+  }
+}

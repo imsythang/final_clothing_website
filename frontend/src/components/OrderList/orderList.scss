@@ -1,0 +1,107 @@
+.order-list {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  
+    h1 {
+      font-size: 24px;
+      color: #4a4a4a;
+    }
+  
+    .export-file, .create-order {
+      background-color: #f8f8f8;
+      color: #333;
+      padding: 10px;
+      border: 1px solid #ccc;
+      margin: 10px 0;
+      cursor: pointer;
+    }
+  
+    .create-order {
+      float: right;
+    }
+  
+    .order-tabs {
+      display: flex;
+      gap: 10px;
+      margin: 20px 0;
+  
+      button {
+        background: #f0e6dc;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        font-weight: bold;
+      }
+  
+      .active-tab {
+        border-bottom: 2px solid #000;
+      }
+    }
+  
+    .filters {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+  
+      select, input {
+        padding: 8px;
+        border: 1px solid #ccc;
+        background-color: #f8f1e7;
+        font-family: Arial, sans-serif;
+        font-size: 14px;
+        color: #4a4a4a;
+        cursor: pointer;
+        outline: none;
+      }
+  
+      .filter-dropdown {
+        position: relative;
+  
+        button {
+          padding: 8px;
+          background-color: #f7e7d4;
+          border: 1px solid #ccc;
+          cursor: pointer;
+        }
+  
+        input[type="text"] {
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          flex: 1;
+          background-color: #fffbe6;
+          position: absolute;
+          top: 100%; /* Để xuất hiện dưới nút */
+          left: 0;
+          margin-top: 5px;
+        }
+      }
+    }
+  
+    .order-table {
+      width: 100%;
+      border-collapse: collapse;
+  
+      th, td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+  
+      th {
+        background-color: #f8f8f8;
+        color: #4a4a4a;
+        font-weight: bold;
+      }
+  
+      td {
+        font-size: 14px;
+        color: #333;
+      }
+  
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+  

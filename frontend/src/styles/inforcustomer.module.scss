@@ -1,0 +1,109 @@
+.title {
+    width: 418px;
+    height: 65px;
+    padding-left: 66px;
+    padding-top: 120px;
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 130%;
+    /* identical to box height, or 65px */
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+
+}
+
+.takeNote {
+    position: relative;
+    display: flex;
+    width: 301px;
+    height: 115px;
+    left: 65px;
+    top: 23px;
+    background: #FFF2E3;
+
+    .takeNoteTitle {
+        position: absolute;
+        top: 16px;
+        left: 16px;
+        font-family: 'Josefin Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 130%;
+
+        input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 2px solid #60443A;
+            box-sizing: border-box;
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 15px;
+            line-height: 130%;
+            background-color: #FFF2E3;
+        }
+    }
+}
+
+.info {
+    position: relative;
+    display: flex;
+    width: 703px;
+    height: 379px;
+    left: 449px;
+    top: -92px;
+
+    background: #FFF2E3;
+
+    h2 {
+        position: absolute;
+        top: 18px;
+        left: 38px;
+        font-family: 'Josefin Sans';
+        font-style: normal;
+        font-weight: 600;
+        font-size: 25px;
+        line-height: 130%;
+
+    }
+
+    .infoSpecific {
+        .component {
+            position: absolute;
+            width: 27px;
+            height: 11px;
+            font-family: 'Josefin Sans';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 130%;
+            top: 48px;
+            left: 39px;
+
+            input {
+                box-sizing: border-box;
+                display: inline-block;
+                width: 289px;
+                height: 43px;
+                border: 2px solid #60443A;
+                padding: 12px 20px;
+                box-sizing: border-box;
+                font-family: 'Josefin Sans';
+                font-style: normal;
+                font-weight: 400;
+                font-size: 15px;
+                line-height: 130%;
+                background-color: #FFF2E3;
+
+            }
+        }
+    }
+}

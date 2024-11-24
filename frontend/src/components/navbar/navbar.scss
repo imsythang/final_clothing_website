@@ -1,0 +1,82 @@
+ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #CFB38C;
+    position: fixed;
+    /* Cố định vị trí ở trên cùng */
+    top: 0;
+    /* Đặt vị trí trên cùng */
+    left: 0;
+    width: 100%;
+    /* Chiếm toàn bộ chiều rộng */
+    z-index: 1000;
+    /* Đảm bảo rằng navbar sẽ hiển thị trên mọi phần tử khác */
+}
+
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    font-family: Jura;
+    margin-top: 7px;
+    margin-bottom: 7px;
+    margin-left: 34px;
+    margin-right: 34px;
+    padding: 7px;
+}
+
+li a:hover:not(.active) {
+    text-decoration: underline;
+}
+
+.navbar {
+    position: fixed;
+    height: 65px;
+    z-index: 99;
+}
+
+.home {
+    font-family: Island Moments;
+    float: left;
+    font-size: 30px;
+}
+
+.element {
+    float: right;
+}
+
+.account {
+    float: right;
+    margin-right: 60px;
+}
+
+.login {
+    border: 2px solid white;
+    float: right;
+    margin-right: 60px;
+}
+
+.active {
+    background-color: #04AA6D;
+}
+
+.home__icon {
+    margin-right: 15px;
+}
+
+.sign_up_content{
+    /* Rectangle 58 */
+
+    position: fixed;
+    width: 750px;
+    height: 613px;
+    left: calc(50% - 750px/2);
+    top: calc(50% - 613px/2 - 59.5px);
+
+    background: #FFFFFF;
+
+}

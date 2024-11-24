@@ -1,0 +1,77 @@
+.footer__container {
+    font-family: "Inria Serif", serif;
+    padding: 45px 65px;
+}
+
+.login-form {
+  background-color: white;
+  padding: 50px;
+  width: 600px; /* Tăng chiều rộng tối đa */
+  margin: 0 auto; /* Căn giữa theo chiều ngang */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  font-family: 'Jura', sans-serif;
+
+  h2 {
+      margin-bottom: 25px;
+      font-size: 32px;
+      color: #4a4a4a;
+  }
+
+  label {
+      display: block;
+      text-align: left;
+      margin-bottom: 8px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #4a4a4a;
+  }
+
+  input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 25px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #ffe7d6;
+  }
+
+  .forgot-password {
+      text-align: right;
+      margin-bottom: 25px;
+      a {
+          font-size: 14px;
+          color: #4a4a4a;
+          text-decoration: none;
+      }
+  }
+
+  button {
+      background-color: #4a4a4a;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+  }
+
+  button:hover {
+      background-color: #333;
+  }
+
+  .sign-up {
+      margin-top: 25px;
+      font-size: 14px;
+      a {
+          color: #4a4a4a;
+          text-decoration: none;
+          font-weight: bold;
+      }
+  }
+}

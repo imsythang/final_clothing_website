@@ -1,0 +1,83 @@
+.page{
+    position: relative;
+    
+    width: 100vw;
+    height: 1600px;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+
+    background-color: white;
+
+}
+
+.title {
+    position:absolute;
+    
+    top: 0px;
+    width: auto;
+    height: auto;
+    padding-left: 66px;
+    padding-top: 120px;
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 50px;
+    line-height: 130%;
+    /* identical to box height, or 65px */
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+
+}
+
+.table {
+    width: 703px;
+    height: 334px;
+    top: 200px;
+    left: calc(50% - 703px/2 + 77.5px);
+    position: absolute;
+
+}
+
+
+.note {
+    /* Group 219 */
+
+    position: absolute;
+    width: 301px;
+    height: 108px;
+    left: 65px;
+    top: 208px;
+
+    background-color: #FFF2E3;
+
+
+}
+
+.note_content{
+    /* Ghi chú */
+
+    position: absolute;
+    width: 69px;
+    height: 26px;
+    left: 20px;
+    top: 20px;
+
+    font-family: 'Josefin Sans';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    /* identical to box height, or 26px */
+    display: flex;
+    align-items: center;
+
+    color: #000000;
+
+
+}

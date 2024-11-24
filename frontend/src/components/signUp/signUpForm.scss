@@ -1,0 +1,67 @@
+.sign-up-form {
+    background-color: white;
+    padding: 40px;
+    max-width: 600px; /* Chiều rộng của khung đăng ký */
+    margin: 100px auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    font-family: 'Jura', sans-serif;
+  
+    h2 {
+      margin-bottom: 20px;
+      font-size: 32px;
+      color: #4a4a4a;
+    }
+  
+    label {
+      display: block;
+      text-align: left;
+      margin-bottom: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      color: #4a4a4a;
+    }
+  
+    input[type="text"],
+    input[type="email"],
+    input[type="password"],
+    input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #ffe7d6;
+    }
+  
+    .gender-options {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+  
+      label {
+        font-size: 14px;
+        color: #4a4a4a;
+      }
+  
+      input {
+        margin-right: 5px;
+      }
+    }
+  
+    button {
+      background-color: #4a4a4a;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+  
+    button:hover {
+      background-color: #333;
+    }
+  }
+  
