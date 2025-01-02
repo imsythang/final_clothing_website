@@ -83,23 +83,15 @@ li:nth-child(7) a {
     margin-left: 540px;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 70px;
 }
 .product_list .product {
     width: 240px;
     height: auto;
 }
-.product_list .product .image_1,
-.image_2,
-.image_3,
-.image_4,
-.image_5,
-.image_6,
-.image_7,
-.image_8,
-.image_9 {
-    width: 100px;
-    height: 100px;
+.product_list img {
+    width: 238px;
+    height: 238px;
     cursor: pointer;
     object-fit: cover;
 }
@@ -150,11 +142,13 @@ li:nth-child(7) a {
     font-size: 16px;
     color: rgba(0, 0, 0, 0.5);
     margin-left: 180px;
-    margin-top: -40px;
+    margin-top: -20px;
 }
 
 .product_list .description {
     font-family: "Josefin Sans", sans-serif;
+    max-width: 238px;
+    word-wrap: break-word;
     font-weight: 700;
     font-size: 18px;
     line-height: 130%;
@@ -174,7 +168,7 @@ li:nth-child(7) a {
 
 .product_list .iconstar {
     display: flex;
-    margin-top: -10px;
+    margin-top: 10px;
     color: #ffc700;
 
     span {

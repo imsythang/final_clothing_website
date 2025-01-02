@@ -18,7 +18,7 @@ function Header() {
             <div className={style.logo_text}>Nét</div>
             <div className={style.describe_text}>Letting your true beauty shine</div>
             <Link to="/newArrival" >
-                <button className={style.box} style={{ }}>
+                <button className={style.box} style={{}}>
                     Shop now
                 </button>
             </Link>
