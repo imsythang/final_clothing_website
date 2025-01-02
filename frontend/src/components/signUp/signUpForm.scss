@@ -1,7 +1,7 @@
 .sign-up-form {
     background-color: white;
     padding: 40px;
-    max-width: 600px; /* Chiều rộng của khung đăng ký */
+    max-width: 800px; /* Chiều rộng của khung đăng ký */
     margin: 100px auto;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -33,6 +33,14 @@
       border: 1px solid #ccc;
       border-radius: 5px;
       background-color: #ffe7d6;
+    }
+
+    .input-value{
+      display: flex;
+      justify-content: space-between;
+      .input-value-item {
+        width: 45%;
+      }
     }
   
     .gender-options {
