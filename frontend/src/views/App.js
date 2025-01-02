@@ -13,9 +13,9 @@ import Profile from './infoCustomer';
 import Product from "./productDetail";
 import ShoppingCart from './shoppingCart';
 import WriteReview from "./writeReview";
-// import WomenProduct from './Womenpro';
+import WomenProduct from './Womenpro';
 import MenProduct from './Menpro';
-// import NProduct from './Nproduct';
+import NProduct from './Nproduct';
 import HomePage from './homePage';
 function App() {
   const isLoggedIn = window.localStorage.getItem("LoggedIn");
@@ -32,6 +32,8 @@ function App() {
           {/* unauthorized route */}
           <Route path='/' element={<HomePage />} />
           <Route path="/men" element={<MenProduct />} />
+          <Route path="/women" element={<WomenProduct />} />
+          <Route path="/new" element={<NProduct />} />
           <Route path="/signin" element={<SignInFormApp />} />
           <Route path="/signup" element={<SignUpFormApp />} />
           <Route path="/forgotpassword" element={<ForgotPasswordFormApp />} />

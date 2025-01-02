@@ -10,10 +10,10 @@ import image2 from '../img/new/product2.jpg';
 import image3 from '../img/new/product3.jpg';
 import image4 from '../img/new/product4.jpg';
 import image5 from '../img/new/product5.jpg';
-import image6 from '../img/new/product6.jpg';
+import image6 from '../img/new/product1.jpg';
 import image7 from '../img/new/product7.jpg';
 import image8 from '../img/new/product8.jpg';
-import image9 from '../img/new/product9.jpg';
+import image9 from '../img/new/product2.jpg';
 import Footer from '../components/footer/footer';
 import { CSSTransition } from 'react-transition-group';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
@@ -47,20 +47,20 @@ function NProduct() {
     const Product = ({ product }) => {
         const { image, title, size, description, price, rating, reviews, colors } = product;
         return (
-            <div className={`product product-${product.id}`}>
-                <img className={`image-${product.id}`} src={image} alt={description} />
-                <div className="color">
+            <div className={`product product_${product.id}`}>
+                <img className={`image_${product.id}`} src={image} alt={description} />
+                <div className={styles.color}>
                     {[...Array(colors)].map((_, index) => (
                         <i key={index} className={`color${index + 1}`} />
                     ))}
                 </div>
-                <p class='title'>{title}</p>
-                <p class='size'>{size}</p>
-                <p class='description'>{description}</p>
-                <p class='price'>{price}</p>
+                <p className={styles.title}>{title}</p>
+                <p className={styles.size}>{size}</p>
+                <p className={styles.description}>{description}</p>
+                <p className={styles.price}>{price}</p>
 
                 {rating > 0 && (
-                    <div className="iconstar">
+                    <div className={styles.iconstar}>
                         <span>
                             {[...Array(rating)].map((_, index) => (
                                 <FontAwesomeIcon key={index} icon={faStar} />
@@ -68,14 +68,14 @@ function NProduct() {
                         </span>
                     </div>
                 )}
-                <span className="count">{reviews}</span>
+                <span className={styles.count}>{reviews}</span>
             </div>
 
         );
     };
 
     const ProductList = () => (
-        <div className="product-list">
+        <div className={styles.product_list}>
             {products.map((product) => (
                 <Product key={product.id} product={product} />
             ))}
@@ -85,23 +85,23 @@ function NProduct() {
         <>
             <NavbarAfterLogin />
             <BasicBreadcrumbs links={breadcrumbLinks} />
-            <div class="container">
-                <div class="left">
+            <div className={styles.container}>
+                <div className={styles.left}>
                     <h2 >Kết quả </h2>
                     <h3 >9 mục</h3>
                     <h4 >Sản phẩm mới</h4>
                     <Filter />
                 </div>
-                <div class="right">
-                    <h2 className="Active">Tìm kiếm</h2>
-                    <button class="New">Mới</button>
-                    <h2 className="Sort"> Tìm kiếm theo</h2>
-                    <div className="featured" onClick={() => handleFeaturedClick(0, selectedOption)}>
+                <div className={styles.right}>
+                    <h2 className={styles.Active}>Tìm kiếm</h2>
+                    <button className={styles.New}>Mới</button>
+                    <h2 className={styles.Sort}> Tìm kiếm theo</h2>
+                    <div className={styles.featured} onClick={() => handleFeaturedClick(0, selectedOption)}>
                         {selectedOption}
                         {openDiv === 0 ? (
-                            <FontAwesomeIcon className="icon__item" icon={faChevronUp} />
+                            <FontAwesomeIcon className={styles.icon__item} icon={faChevronUp} />
                         ) : (
-                            <FontAwesomeIcon className="icon__item" icon={faChevronDown} />
+                            <FontAwesomeIcon className={styles.icon__item} icon={faChevronDown} />
                         )}
                     </div>
                     <CSSTransition
@@ -115,7 +115,7 @@ function NProduct() {
                         }}
                         unmountOnExit
                     >
-                        <div className="choose">
+                        <div className={styles.choose}>
                             <p onClick={() => handleFeaturedClick(0, 'Nổi bật')}>Nổi bật</p>
                             <p onClick={() => handleFeaturedClick(0, 'Mới nhất')}>Mới nhất</p>
                             <p onClick={() => handleFeaturedClick(0, 'Thấp tới cao')}>Thấp tới cao</p>

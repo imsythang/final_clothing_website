@@ -18,7 +18,6 @@ li:nth-child(8) a {
     position: absolute;
     left: 69px;
     top: 199px;
-
     font-family: "Josefin Sans";
     font-style: normal;
     font-weight: 300;
@@ -78,34 +77,25 @@ li:nth-child(8) a {
     cursor: pointer;
     z-index: 1;
 }
-.product-list {
+.product_list {
     position: relative;
     margin-top: 85px;
     margin-left: 540px;
     display: flex;
     flex-wrap: wrap;
-    gap: 58px;
+    gap: 70px;
 }
-
-.product {
+.product_list .product {
     width: 240px;
     height: auto;
 }
-.image-1,
-.image-2,
-.image-3,
-.image-4,
-.image-5,
-.image-6,
-.image-7,
-.image-8,
-.image-9 {
-    width: 100%;
+.product_list img {
+    width: 238px;
     height: 238px;
     cursor: pointer;
     object-fit: cover;
 }
-.product .color {
+.product_list .product .color {
     display: flex;
     gap: 8px;
     margin-top: 10px;
@@ -136,7 +126,7 @@ li:nth-child(8) a {
         }
     }
 }
-.title {
+.product_list .title {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 400;
     font-size: 20px;
@@ -146,17 +136,19 @@ li:nth-child(8) a {
     margin-top: 20px;
 }
 
-.product .size {
+.product_list .size {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 400;
     font-size: 16px;
     color: rgba(0, 0, 0, 0.5);
     margin-left: 180px;
-    margin-top: -40px;
+    margin-top: -20px;
 }
 
-.description {
+.product_list .description {
     font-family: "Josefin Sans", sans-serif;
+    max-width: 238px;
+    word-wrap: break-word;
     font-weight: 700;
     font-size: 18px;
     line-height: 130%;
@@ -165,7 +157,7 @@ li:nth-child(8) a {
     margin-top: 5px;
     cursor: pointer;
 }
-.price {
+.product_list .price {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -174,21 +166,19 @@ li:nth-child(8) a {
     margin-top: 10px;
 }
 
-.iconstar {
+.product_list .iconstar {
     display: flex;
-    margin-top: -10px;
+    margin-top: 10px;
     color: #ffc700;
 
     span {
         display: flex;
     }
 }
-.product-2 .price,
-.product-6 .price,
-.product-8 .price {
+.product_4 .price {
     margin-top: 43px;
 }
-.count {
+.product_list .count {
     font-family: "Josefin Sans", sans-serif;
     font-weight: 400;
     font-size: 14px;
@@ -206,7 +196,7 @@ li:nth-child(8) a {
     font-style: "Josefin Sans";
     font-weight: 300;
     width: 190px;
-    height: 35px;
+    height: 45px;
     margin-left: 1165px;
     margin-top: -50px;
 }
@@ -247,7 +237,7 @@ li:nth-child(8) a {
     float: right;
 }
 /* OPTION */
-.choose {
+.right .choose {
     position: absolute;
     margin-left: 1165px;
     padding-left: 10px;
