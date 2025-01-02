@@ -1,27 +1,29 @@
 
 
-import { NavbarHome } from "../components/navbar/navbar"
 
+import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { faInstagram } from '@fortawesome/free-brands-svg-icons'
-import { faTiktok } from '@fortawesome/free-brands-svg-icons';
 
-import style from '../styles/homepage.module.scss';
+import { Link } from "react-router-dom";
 import image2 from '../img/HomepageImg/HomeIMG2.avif';
 import image3 from '../img/HomepageImg/HomeIMG3.avif';
 import image4 from '../img/HomepageImg/HomeIMG4.avif';
 import logoImg from '../img/HomepageImg/logo.png';
+import style from '../styles/homepage.module.scss';
+import Navbar from '../components/navbar/navbar';
 
 function Header() {
     return (
-
         <div className={style.img_header}>
             <div className={style.logo_text}>Nét</div>
             <div className={style.describe_text}>Letting your true beauty shine</div>
-            <button className={style.box}>
-                Shop now
-            </button>
+            <Link to="/newArrival" >
+                <button className={style.box} style={{ }}>
+                    Shop now
+                </button>
+            </Link>
+
+
         </div>
     );
 }
@@ -40,6 +42,7 @@ function Body() {
                 </div>
             </div>
             <img src={image2} className={style.side_img}></img>
+
             <div className={style.box_who_are_we} style={{ top: 750, left: 65 }}>What We Offer</div>
             <div className={style.gender_box}>
                 <img src={image3} alt="women" style={{ position: "absolute", width: 358, height: 534 }}></img>
@@ -75,7 +78,7 @@ export default function HomePage() {
 
     return (
         <>
-            <NavbarHome />
+            <Navbar />
             <Header />
             <Body />
             <Footer />

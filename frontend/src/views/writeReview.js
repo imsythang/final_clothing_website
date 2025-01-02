@@ -1,20 +1,20 @@
-import NavbarAfterLogin from "../components/navbar/navbarAfterLogin";
-import Footer from '../components/footer/footer'
+import clsx from "clsx";
 import { Link } from "react-router-dom";
-import clsx from "clsx"
+import Footer from '../components/footer/footer';
 
 
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Navbar from "../components/navbar/navbar";
 import image1 from '../img/product_image1.avif';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-import style1 from '../styles/grid.module.scss'
-import style from '../styles/writeReview.module.scss'
+import style1 from '../styles/grid.module.scss';
+import style from '../styles/writeReview.module.scss';
 
 
 function WriteReview() {
     return (
         <>
-            <NavbarAfterLogin />
+            <Navbar />
             <div className={style.container}>
                 <div className={clsx(style1.grid, style1.wide)}>
                     <h1 className={style.heading}>AIRism Cotton Ribbed Polo Shirt</h1>
