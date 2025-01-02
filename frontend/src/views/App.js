@@ -1,15 +1,11 @@
-<<<<<<< HEAD
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import Navbar from '../components/navbar/navbar';
 import NavbarAfterLogin from '../components/navbar/navbarAfterLogin';
-=======
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import ForgotPasswordFormApp from "../components/ForgotPassword/forgotPassword";
 import CategoryPage from '../components/categoryPage/categoryPage';
-import Navbar from '../components/navbar/navbar';
 import ProductPage from '../components/productPage/productPage';
 import ProtectedRoute from '../components/protectedRoute';
->>>>>>> 32751deeb5e4cca7edd5a12bcf998d794bc6cfc0
 import SignInFormApp from '../components/signIn/signInForm';
 import SignUpFormApp from '../components/signUp/signUpForm';
 import Warehouse from '../components/warehouse/warehouse';
@@ -17,7 +13,6 @@ import Profile from './infoCustomer';
 import Product from "./productDetail";
 import ShoppingCart from './shoppingCart';
 import WriteReview from "./writeReview";
-import Profile from './infoCustomer';
 // import WomenProduct from './Womenpro';
 import MenProduct from './Menpro';
 // import NProduct from './Nproduct';
