@@ -2,7 +2,7 @@ ul.navbar {
     list-style-type: none;
     margin: 0;
     padding: 0;
-    background-color: #CFB38C;
+    background-color: #cfb38c;
     position: fixed;
     /* Cố định vị trí ở trên cùng */
     top: 0;
@@ -13,7 +13,6 @@ ul.navbar {
     z-index: 1000;
     /* Đảm bảo rằng navbar sẽ hiển thị trên mọi phần tử khác */
 }
-
 
 li a {
     display: block;
@@ -61,22 +60,21 @@ li a:hover:not(.active) {
 }
 
 .active {
-    background-color: #04AA6D;
+    background-color: #04aa6d;
 }
 
 .home__icon {
     margin-right: 15px;
 }
 
-.sign_up_content{
+.sign_up_content {
     /* Rectangle 58 */
 
     position: fixed;
     width: 750px;
     height: 613px;
-    left: calc(50% - 750px/2);
-    top: calc(50% - 613px/2 - 59.5px);
+    left: calc(50% - 750px / 2);
+    top: calc(50% - 613px / 2 - 59.5px);
 
-    background: #FFFFFF;
-
+    background: #ffffff;
 }

@@ -1,0 +1,281 @@
+li:nth-child(6) a {
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 2px;
+    text-decoration-color: 0000;
+}
+.left h2 {
+    position: absolute;
+    left: 69px;
+    top: 143px;
+
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 130%;
+}
+.left h3 {
+    position: absolute;
+    left: 69px;
+    top: 199px;
+
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 130%;
+}
+.left h4 {
+    position: absolute;
+    left: 69px;
+    top: 250px;
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 700;
+    font-size: 50px;
+    line-height: 130%;
+    text-decoration: underline;
+    text-underline-offset: 23px;
+    text-decoration-thickness: 3px;
+    text-decoration-color: 0000;
+}
+.right .Active {
+    position: absolute;
+    left: 539px;
+    top: 131px;
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 130%;
+}
+.right .Sort {
+    position: absolute;
+    left: 1187px;
+    top: 131px;
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 130%;
+}
+.right .New {
+    margin-top: 65px;
+    margin-left: 540px;
+    font-family: "Josefin Sans";
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-weight: 300;
+    font-size: 24px;
+    background-color: #e4c8a6;
+    color: black;
+    height: 53px;
+    width: 106px;
+    border-radius: 31px;
+    border: none;
+    cursor: pointer;
+    z-index: 1;
+}
+.product-list {
+    position: relative;
+    margin-top: 85px;
+    margin-left: 540px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 58px;
+}
+
+.product {
+    width: 240px;
+    height: auto;
+}
+.image-1,
+.image-2,
+.image-3,
+.image-4,
+.image-5,
+.image-6,
+.image-7,
+.image-8,
+.image-9,
+.image-10,
+.image-11,
+.image-12 {
+    width: 100%;
+    height: 238px;
+    cursor: pointer;
+    object-fit: cover;
+}
+.product .color {
+    display: flex;
+    gap: 8px;
+    margin-top: 10px;
+    margin-left: 0;
+    i {
+        width: 21px;
+        height: 21px;
+        &.color1 {
+            background: #414246;
+        }
+        &.color2 {
+            background: #242426;
+        }
+        &.color3 {
+            background: #eae6dc;
+        }
+        &.color4 {
+            background: #aa9488;
+        }
+        &.color5 {
+            background: linear-gradient(0deg, #60443a, #60443a);
+        }
+        &.color6 {
+            background: linear-gradient(0deg, #464338, #464338);
+        }
+        &.color7 {
+            background: linear-gradient(0deg, #7590af, #7590af);
+        }
+    }
+}
+.title {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    color: rgba(0, 0, 0, 0.5);
+    text-align: start;
+    margin-top: 20px;
+}
+
+.product .size {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: rgba(0, 0, 0, 0.5);
+    margin-left: 180px;
+    margin-top: -40px;
+}
+
+.description {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 130%;
+    color: #000;
+    text-align: start;
+    margin-top: 5px;
+    cursor: pointer;
+}
+.price {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: #000;
+    text-align: start;
+    margin-top: 10px;
+}
+
+.iconstar {
+    display: flex;
+    margin-top: -10px;
+    color: #ffc700;
+
+    span {
+        display: flex;
+    }
+}
+
+.product-6 .price,
+.product-10 .price,
+.product-11 .price,
+.product-12 .price {
+    margin-top: 43px;
+}
+.count {
+    font-family: "Josefin Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000;
+    text-align: center;
+    display: block;
+    margin-top: -13px;
+}
+
+.right .featured {
+    position: relative;
+    padding: 5px 10px;
+    border: 1px solid #000;
+    font-size: 24px;
+    font-style: "Josefin Sans";
+    font-weight: 300;
+    width: 190px;
+    height: 35px;
+    margin-left: 1165px;
+    margin-top: -50px;
+}
+.featured .icon__item {
+    margin-top: 5px;
+    float: right;
+}
+.size {
+    overflow: hidden; /* Giúp ẩn nội dung khi nó không hiển thị */
+}
+
+.right .slide-enter {
+    max-height: 0;
+    opacity: 0;
+    transition:
+        max-height 300ms ease-in,
+        opacity 300ms ease-in;
+}
+
+.right .slide-enter-active {
+    max-height: 300px; /* Hoặc giá trị lớn hơn tùy thuộc vào nội dung của bạn */
+    opacity: 1;
+}
+
+.right .slide-exit {
+    // max-height: 100px; /* Hoặc giá trị lớn hơn tùy thuộc vào nội dung của bạn */
+    opacity: 1;
+    transition:
+        max-height 300ms ease-out,
+        opacity 300ms ease-out;
+}
+
+.right .slide-exit-active {
+    max-height: 0;
+    opacity: 0;
+}
+.right .item__icon {
+    float: right;
+}
+/* OPTION */
+.choose {
+    position: absolute;
+    margin-left: 1165px;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 190px;
+    height: 170px;
+    background-color: #ffffff;
+    border: 1px solid #000;
+    z-index: 2;
+    p {
+        margin: 10px 0;
+        align-items: center;
+        cursor: pointer;
+        font-size: 23px;
+        font-style: "Josefin Sans";
+        font-weight: 300;
+        &:hover {
+            color: #cfb38c;
+        }
+    }
+}
+
+.regular {
+    font-weight: normal;
+}

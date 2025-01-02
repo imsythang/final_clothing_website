@@ -1,0 +1,182 @@
+.filter {
+    position: absolute;
+    margin-top: 20px;
+}
+.content {
+    overflow: hidden; /* Giúp ẩn nội dung khi nó không hiển thị */
+}
+
+.slide-enter {
+    opacity: 0; // Initial state when entering
+    transform: translateY(-20px); // Start from slightly above
+}
+
+.slide-enter-active {
+    opacity: 1; // End state when fully visible
+    transform: translateY(0); // End state at original position
+    transition:
+        opacity 300ms,
+        transform 300ms; // Transition duration for opacity and transform
+}
+
+.slide-exit {
+    opacity: 1; // Initial state when exiting (fully visible)
+    transform: translateY(0); // Start at original position
+}
+
+.slide-exit-active {
+    opacity: 0; // End state when fully invisible
+    transform: translateY(20px); // Move downward when exiting
+    transition:
+        opacity 300ms,
+        transform 300ms; // Transition duration for opacity and transform
+}
+
+.decription__item1 {
+    display: flex;
+    position: relative;
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 300;
+    left: 69px;
+    margin-top: 150px;
+    font-size: 25px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    cursor: pointer;
+}
+.icon__item1 {
+    margin-left: 200px;
+}
+.icon__item2 {
+    margin-left: 220px;
+}
+.icon__item3 {
+    margin-left: 222px;
+}
+.size {
+    display: flex;
+    margin-top: 15px;
+    margin-left: 69px;
+    gap: 5px;
+}
+
+.size .sizeItem {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: "Inria Serif";
+    cursor: pointer;
+    border: 1px solid #d2bca0;
+    color: #d2bca0;
+    transition: all 0.3s ease;
+}
+
+.sizeItem:hover {
+    border-color: #a59b8d;
+    color: #a59b8d;
+}
+
+.selected {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: "Inria Serif";
+    cursor: pointer;
+    border: 1px solid #000000;
+    color: #000000;
+}
+
+.sizeItem {
+    transition:
+        border 0.3s ease,
+        color 0.3s ease;
+}
+
+.decription__item2 {
+    position: relative;
+    margin-top: 20px;
+    left: 69px;
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    cursor: pointer;
+}
+.color {
+    width: 340px;
+    margin-left: 69px;
+    display: flex;
+    gap: 1px;
+    flex-wrap: wrap;
+}
+
+.colorItem {
+    width: 48px;
+    height: 48px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.selectedColor {
+    border: 1px solid black;
+}
+
+.decription__item3 {
+    position: relative;
+    margin-top: 20px;
+    left: 69px;
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 300;
+    font-size: 25px;
+    line-height: 130%;
+    display: flex;
+    align-items: center;
+    color: #000000;
+    cursor: pointer;
+}
+.pricing {
+    margin-left: 69px;
+    margin-top: 15px;
+    gap: 10px;
+}
+
+.icon1,
+.icon2,
+.icon3,
+.icon4 {
+    cursor: pointer;
+    font-size: 18px;
+    margin-right: 8px;
+}
+.selectedPricing {
+    font-size: 18px;
+    color: #cfb38c;
+}
+.pricing1,
+.pricing2,
+.pricing3,
+.pricing4 {
+    margin-top: -17px;
+    margin-left: 30px;
+    font-size: 15px;
+    font-weight: 300;
+    font-family: "Josefin Sans";
+    cursor: pointer;
+}
