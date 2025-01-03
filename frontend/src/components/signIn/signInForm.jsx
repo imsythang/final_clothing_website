@@ -36,7 +36,7 @@ function LoginForm() {
                     navigate("/productpage");
                 }
                 else {
-                    navigate("/"); // thêm đường dẫn chuyển sang trang admin
+                    navigate(""); // thêm đường dẫn chuyển sang trang admin
                 }
             }
         } catch (error) {
