@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/NavigationBar/Navbar';
-import styles from '../styles/listsupplier.module.scss'
+import styles from '../../styles/listsupplier.module.scss'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import productApi from '../api/productApi';

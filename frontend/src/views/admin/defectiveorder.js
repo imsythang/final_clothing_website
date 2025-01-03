@@ -1,4 +1,4 @@
-import styles from '../styles/defectiveorder.module.scss'
+import styles from '../../styles/defectiveorder.module.scss'
 import React from 'react';
 import Navbar from '../../components/NavigationBar/Navbar';
 import { useState, useEffect } from 'react';

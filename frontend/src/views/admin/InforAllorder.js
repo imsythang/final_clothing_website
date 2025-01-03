@@ -1,5 +1,5 @@
 import Navbar from "../../components/NavigationBar/Navbar";
-import styles from '../styles/orderInfo.module.scss';
+import styles from '../../styles/orderInfo.module.scss';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 

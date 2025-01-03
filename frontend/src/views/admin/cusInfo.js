@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from "../../components/NavigationBar/Navbar";
-import styles from '../styles/cusInfo.module.scss';
+import styles from '../../styles/cusInfo.module.scss';
 import { useNavigate, useParams } from "react-router-dom";
 
 function CusInfo() {

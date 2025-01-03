@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/NavigationBar/Navbar';
-import styles from '../styles/Orders.module.scss'
+import styles from '../../styles/Orders.module.scss'
 import { useEffect, useState } from 'react';
 import employeeApi from '../api/employeeApi';
 import { useNavigate } from 'react-router-dom';

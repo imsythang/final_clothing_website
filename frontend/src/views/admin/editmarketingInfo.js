@@ -1,5 +1,5 @@
 import Navbar from "../../components/NavigationBar/Navbar";
-import styles from '../styles/editmarketingInfo.module.scss';
+import styles from '../../styles/editmarketingInfo.module.scss';
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
 function EditMarketingInfo() {
