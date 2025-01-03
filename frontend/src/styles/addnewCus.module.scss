@@ -1,0 +1,252 @@
+$hover-color: #60443A;
+
+.title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: 'Josefin Sans';
+    color: #60443A;
+    position: absolute;
+    top: 20%;
+    left: 20%;
+    padding: 20px;
+}
+
+.delete_button {
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 3px solid $hover-color;
+    cursor: pointer;
+    color: #60443A;
+    font-family: 'Josefin Sans';
+    font-weight: 400px;
+    font-size: 20px;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    margin-left: 20px;
+
+    &:hover {
+        background-color: darken($hover-color, 10%);
+        color: #fff;
+    }
+}
+
+.content {
+    padding: 30px;
+    position: absolute;
+    top: 40%;
+    left: 20%;
+    background-color: #FFF2E3;
+    margin-left: 20px;
+    font-family: 'Josefin Sans';
+    width: 55%;
+
+    label {
+        display: block;
+        font-size: 20px;
+        padding-bottom: 10px;
+        color: #60443A;
+    }
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 2px solid #60443A;
+        background-color: none;
+    }
+
+    h3 {
+        color: #60443A;
+        font-size: 25px;
+    }
+
+    .details {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .leftitem {
+        display: inline-block;
+        width: 50%;
+
+        label {
+            color: #60443A;
+        }
+
+        input {
+            width: 90%;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border: 2px solid #60443A;
+        }
+    }
+
+    .rightitem {
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+
+        width: 50%;
+
+        label {
+            color: #60443A;
+        }
+
+        input {
+            width: 90%;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border: 2px solid #60443A;
+        }
+
+        select {
+            width: 50%;
+            padding: 7px 10px;
+            margin-bottom: 10px;
+            border: 2px solid #60443A;
+        }
+    }
+
+    .edit_button {
+        background-color: #fff;
+        padding: 5px 10px;
+        border: 3px solid $hover-color;
+        cursor: pointer;
+        color: #60443A;
+        font-family: 'Josefin Sans';
+        font-weight: 400px;
+        font-size: 20px;
+
+        &:hover {
+            background-color: darken($hover-color, 10%);
+            color: #fff;
+        }
+    }
+
+    .marketing {
+        margin-top: 15px;
+
+        input {
+            display: inline;
+            height: 15px;
+            width: 15px;
+            margin-right: 15px;
+        }
+
+        label {
+            display: inline;
+            font-style: italic;
+            font-size: medium;
+        }
+    }
+}
+
+.content2 {
+    padding: 30px;
+    position: absolute;
+    top: 700px;
+    left: 20%;
+    background-color: #FFF2E3;
+    margin-left: 20px;
+    font-family: 'Josefin Sans';
+    width: 55%;
+
+    h3 {
+        color: #60443A;
+        font-size: 25px;
+        display: block;
+    }
+
+    label {
+        font-size: 20px;
+        color: #60443A;
+
+    }
+
+    .leftitem2 {
+        display: inline-block;
+        width: 50%;
+        top: 25%;
+
+        label {
+            color: #60443A;
+
+        }
+
+        input {
+            width: 90%;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border: 2px solid #60443A;
+        }
+    }
+
+    .rightitem2 {
+        display: inline-block;
+        position: absolute;
+        left: 50%;
+        width: 50%;
+
+        label {
+            color: #60443A;
+        }
+
+        input {
+            width: 90%;
+            padding: 5px 10px;
+            margin-bottom: 10px;
+            border: 2px solid #60443A;
+        }
+    }
+
+    textarea {
+        width: 98.7%;
+        padding: 10px;
+        border: 2px solid #60443A;
+        background-color: none;
+    }
+}
+
+.content3 {
+    padding: 10px 20px;
+    position: absolute;
+    top: 40%;
+    left: 78%;
+    background-color: #FFF2E3;
+    margin-left: 20px;
+    font-family: 'Josefin Sans';
+    width: 20%;
+
+    h3 {
+        font-size: 20px;
+        color: #60443A;
+
+    }
+
+    textarea {
+        margin-bottom: 5px;
+        width: 100%;
+        border: 2px solid #60443A;
+        padding: 5px;
+    }
+}
+
+.save_button {
+    background-color: #fff;
+    padding: 2px 30px;
+    border: 3px solid $hover-color;
+    cursor: pointer;
+    color: #60443A;
+    font-family: 'Josefin Sans';
+    font-weight: 400px;
+    font-size: 20px;
+    position: absolute;
+    top: 20%;
+    right: 1%;
+
+    &:hover {
+        background-color: darken($hover-color, 10%);
+        color: #fff;
+    }
+}

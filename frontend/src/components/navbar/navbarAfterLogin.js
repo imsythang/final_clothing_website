@@ -13,9 +13,9 @@ function NavbarAfterLogin() {
                 Nét
             </a></li>
             <li><a href="/profile" className="account" ><UserDropdown /></a></li>
-            <li><a href="#cart" className="element"><FontAwesomeIcon icon={faCartPlus} /></a></li>
-            <li><a href="#help" className="element"><FontAwesomeIcon icon={faCircleInfo} /></a></li>
-            <li><a href="#search" className="element"><FontAwesomeIcon icon={faMagnifyingGlass} /></a></li>
+            <li><a href="/cart" className="element"><FontAwesomeIcon icon={faCartPlus} /></a></li>
+            <li><a href="/help" className="element"><FontAwesomeIcon icon={faCircleInfo} /></a></li>
+            <li><a href="/search" className="element"><FontAwesomeIcon icon={faMagnifyingGlass} /></a></li>
             <li><a href="/women" className="element" >Nữ</a></li>
             <li><a href="/men" className="element" >Nam</a></li>
             <li><a href="/new" className="element" >Sản phẩm mới</a></li>

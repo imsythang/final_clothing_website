@@ -12,8 +12,8 @@ function Navbar() {
                 <FontAwesomeIcon className='home__icon' icon={faHouse} />
                 Nét
             </a></li>
-            <li><a href="#SignIn" className="login" >Đăng nhập</a></li>
-            <li><a href="#cart" className="element"><FontAwesomeIcon icon={faCartPlus} /></a></li>
+            <li><a href="/signin" className="login" >Đăng nhập</a></li>
+            <li><a href="/cart" className="element"><FontAwesomeIcon icon={faCartPlus} /></a></li>
             <li><a href="#help" className="element"><FontAwesomeIcon icon={faCircleInfo} /></a></li>
             <li><a href="#search" className="element"><FontAwesomeIcon icon={faMagnifyingGlass} /></a></li>
             <li><a href="/women" className="element" >Nữ</a></li>

@@ -1,6 +1,7 @@
 
-import Navbar from '../components/navbar/navbar';
-import NavbarAfterLogin from '../components/navbar/navbarAfterLogin';
+// import Navbar from '../components/navbar/navbar';
+// import NavbarAfterLogin from '../components/navbar/navbarAfterLogin';
+import NavbarAdmin from '../components/NavigationBar/Navbar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import ForgotPasswordFormApp from "../components/ForgotPassword/forgotPassword";
 import CategoryPage from '../components/categoryPage/categoryPage';
@@ -25,9 +26,6 @@ function App() {
   return (
     <Router>
       <div className="app">
-
-
-        <Navbar />
         <Routes>
           {/* unauthorized route */}
           <Route path='/' element={<HomePage />} />
