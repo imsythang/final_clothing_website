@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/NavigationBar/Navbar';
+import Navbar from '../../components/NavigationBar/Navbar';
 import styles from '../styles/issueorder.module.scss';
 import { useState, useEffect } from 'react';
 import orderApi from '../api/orderApi';
@@ -14,7 +14,6 @@ const Issueorder = () => {
     }, [])
     return (
         <>
-            <Navbar />
             <h2 className={styles.title}>Danh sách đơn hàng</h2>
             <table className={styles.table}>
                 <thead>

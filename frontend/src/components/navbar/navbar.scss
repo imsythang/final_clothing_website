@@ -1,5 +1,5 @@
 
-ul.navbar{
+ul.navbarall{
     box-sizing: border-box;
     list-style-type: none;
     margin: 0;
@@ -127,14 +127,12 @@ ul.navbar{
         font-size: 16px;
     }
 
+    &.guest{
+        background-color: #fff;
+    }
+
+    &.logged-in{
+        background-color: #CFB38C;
+    }
 }
 
-
-ul.guest {
-    background-color: #fff;
-}
-
-
-ul.logged-in {
-    background-color: #CFB38C;
-}

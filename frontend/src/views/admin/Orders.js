@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/NavigationBar/Navbar';
+import Navbar from '../../components/NavigationBar/Navbar';
 import styles from '../styles/Orders.module.scss'
 import orderApi from '../api/orderApi';
 import { useState, useEffect } from 'react';
@@ -16,7 +16,6 @@ const Orders = () => {
   let navigate = useNavigate();
   return (
     <>
-      <Navbar />
       <h2 className={styles.title}>Danh sách đơn hàng</h2>
       <table className={styles.table}>
         <thead>

@@ -1,4 +1,4 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/addnewMarketing.module.scss';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -17,7 +17,6 @@ function AddNewMarketing() {
 
     return (
         <>
-            <Navbar />
             <div className={styles.title}>Thêm mã tiếp thị</div>
             <form>
                 <div className={styles.content}>

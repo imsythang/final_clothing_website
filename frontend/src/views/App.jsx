@@ -17,6 +17,8 @@ import Product from "./user/productDetail";
 import ShoppingCart from './user/shoppingCart';
 import SizeGuild from './user/sizeGuild';
 import WriteReview from "./user/writeReview";
+import Home from './admin/homepage';
+import Dashboard from './admin/overall';
 function App() {
   const isLoggedIn = window.localStorage.getItem("LoggedIn");
   const role = window.localStorage.getItem("role");
@@ -27,6 +29,7 @@ function App() {
       <div className="app">
         <Navbar />
         <Routes>
+          
           {/* unauthorized route */}
           <Route path='/' element={<HomePage />} />
           <Route path="/newArrival" element={<NProduct />} />
@@ -50,6 +53,8 @@ function App() {
           </Route>
           {/* admin */}
           {/* <Route path='/customer' element= {<Customers />} /> */}
+          <Route path='/dasboard' element = {<Dashboard />} />
+          <Route path='/admin/homepage' element = {<Home />} />
           <Route path="/categorypage" element={<CategoryPage />} />
           <Route path="/productpage" element={<ProductPage />} />
           <Route path="/warehouse" element={<Warehouse />} />

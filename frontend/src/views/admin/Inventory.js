@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../components/NavigationBar/Navbar';
+import Navbar from '../../components/NavigationBar/Navbar';
 import styles from '../styles/inventory.module.scss';
 import { useNavigate } from 'react-router-dom';
 import productApi from '../api/productApi'
@@ -18,7 +18,6 @@ const Inventory = () => {
   }, [])
   return (
     <>
-      <Navbar />
       <div className={styles.content}>
         <h2 className={styles.title}>Quản lý kho</h2>
         <button className={styles.btn} onClick={handleReturnProduct}>Xem sản phẩm</button>

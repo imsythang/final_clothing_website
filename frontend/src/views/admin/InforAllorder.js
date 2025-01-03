@@ -1,4 +1,4 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/orderInfo.module.scss';
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -30,7 +30,6 @@ function OrderInfo() {
     const order = orderDetails[order_id] || {};
     return (
         <>
-            <Navbar />
             <div className={styles.title}>Đơn hàng {order.order_id}</div>
             <div className={styles.btn}>Nhận đơn</div>
             <button className={styles.delete_button}>In đơn hàng</button>

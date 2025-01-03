@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import { Link } from "react-router-dom";
-import Footer from '../components/footer/footer';
+import Footer from '../../components/footer/footer';
 
 
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import image1 from '../img/product_image1.avif';
-import style1 from '../styles/grid.module.scss';
-import style from '../styles/writeReview.module.scss';
+import image1 from '../../img/product_image1.avif';
+import style1 from '../../styles/grid.module.scss';
+import style from '../../styles/writeReview.module.scss';
 
 
 function WriteReview() {

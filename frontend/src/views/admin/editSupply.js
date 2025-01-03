@@ -1,11 +1,10 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/EditSuply.module.scss';
 import { useNavigate } from "react-router-dom";
 function EditSuply() {
     const navigate = useNavigate()
     return (
         <>
-            <Navbar />
             <div className={styles.content}>
                 <h1>IVy Moda</h1>
                 <div className={styles.form_container}>

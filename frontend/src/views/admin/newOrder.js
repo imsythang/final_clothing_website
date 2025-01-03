@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/NavigationBar/Navbar';
+import Navbar from '../../components/NavigationBar/Navbar';
 import styles from '../styles/Orders.module.scss'
 import { useNavigate } from 'react-router-dom';
 const NewOrder = () => {
@@ -10,7 +10,6 @@ const NewOrder = () => {
     };
     return (
         <>
-            <Navbar />
             <h2 className={styles.title}>Danh sách đơn hàng</h2>
             <form>
                 <table className={styles.table}>

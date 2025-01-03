@@ -10,6 +10,7 @@ import image3 from '../../img/HomepageImg/HomeIMG3.avif';
 import image4 from '../../img/HomepageImg/HomeIMG4.avif';
 import logoImg from '../../img/HomepageImg/logo.png';
 import style from '../../styles/homepage.module.scss';
+import NavbarAdmin from '../../components/NavigationBar/Navbar';
 
 function Header() {
     return (

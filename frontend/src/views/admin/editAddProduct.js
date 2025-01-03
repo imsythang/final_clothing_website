@@ -1,4 +1,4 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/EditAddProduct.module.scss';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
@@ -26,7 +26,6 @@ function EditAddProduct() {
 
     return (
         <>
-            <Navbar />
             <div className={styles.content}>
                 <h1>{productName}</h1>
                 <div className={styles['form-container']}>

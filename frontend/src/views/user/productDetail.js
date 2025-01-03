@@ -2,20 +2,20 @@ import clsx from "clsx";
 import { useState } from 'react';
 import { Link } from "react-router-dom";
 
-import Footer from '../components/footer/footer';
-import ImageSlider from '../components/product/imageSlider';
-import SlideToggle from '../components/product/slideToggle';
+import Footer from '../../components/footer/footer';
+import ImageSlider from '../../components/product/imageSlider';
+import SlideToggle from '../../components/product/slideToggle';
 
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import style1 from "../styles/grid.module.scss";
-import style from '../styles/product.module.scss';
+import style1 from "../../styles/grid.module.scss";
+import style from '../../styles/product.module.scss';
 
-import image1 from '../img/product_image1.avif';
-import image2 from '../img/product_image2.avif';
-import image3 from '../img/product_image3.avif';
-import image4 from '../img/product_image4.avif';
+import image1 from '../../img/product_image1.avif';
+import image2 from '../../img/product_image2.avif';
+import image3 from '../../img/product_image3.avif';
+import image4 from '../../img/product_image4.avif';
 
 
 function Product() {

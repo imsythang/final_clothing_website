@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Footer from '../components/footer/footer';
-import styles from '../styles/inforcustomer.module.scss';
+import Footer from '../../components/footer/footer';
+import styles from '../../styles/inforcustomer.module.scss';
 function Profile() {
     const [formData, setFormData] = useState({
         firstName: 'Lê Ngọc',

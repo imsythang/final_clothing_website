@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/NavigationBar/Navbar';
+import Navbar from '../../components/NavigationBar/Navbar';
 import styles from '../styles/marketing.module.scss'
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
@@ -8,7 +8,6 @@ const Employee = () => {
   const marketingId = '1234'
   return (
     <>
-      <Navbar />
       <h2 className={styles.title}>Tất cả tiếp thị</h2>
       <div className={styles.abc}>
         <button className={styles.create} onClick={() => navigate('/listmarketing/addmar')}>Tạo khuyến mãi</button>

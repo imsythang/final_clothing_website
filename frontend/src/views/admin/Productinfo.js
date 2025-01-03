@@ -1,9 +1,7 @@
-import styles from '../styles/productinfo.module.scss'
-import React from 'react';
-import Navbar from '../components/NavigationBar/Navbar';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
 import productApi from '../api/productApi';
+import styles from '../styles/productinfo.module.scss';
 const Productinfo = () => {
     const navigate = useNavigate();
     const handleCreateProduct = () => {
@@ -19,7 +17,6 @@ const Productinfo = () => {
     }, [])
     return (
         <>
-            <Navbar />
             <div className={styles.head}>
                 <h2 className={styles.title}>Danh sách sản phẩm</h2>
                 <button className={styles.btn} onClick={handleCreateProduct}>Tạo sản phẩm</button>

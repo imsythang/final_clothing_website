@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/NavigationBar/Navbar';
+import Navbar from '../../components/NavigationBar/Navbar';
 import styles from '../styles/listsupplier.module.scss'
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
@@ -19,7 +19,6 @@ const Listsupplier = () => {
     }, [])
     return (
         <>
-            <Navbar />
             <h2 className={styles.title}>Danh sách nhà cung cấp</h2>
             <button className={styles.btn} onClick={handleAddSupplier}>Thêm</button>
             <table className={styles.table}>

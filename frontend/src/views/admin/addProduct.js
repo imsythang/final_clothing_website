@@ -1,4 +1,4 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/addProduct.module.scss';
 import { useNavigate } from "react-router-dom";
 function AddPoduct() {
@@ -8,7 +8,6 @@ function AddPoduct() {
     };
     return (
         <>
-            <Navbar />
             <div className={styles.content}>
                 <h1>Tạo sản phẩm</h1>
                 <form>

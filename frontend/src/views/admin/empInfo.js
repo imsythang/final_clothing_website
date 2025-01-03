@@ -1,11 +1,10 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/empInfo.module.scss';
 import { useNavigate } from "react-router-dom";
 function EmpInfo() {
     const navigate = useNavigate()
     return (
         <>
-            <Navbar />
             <div className={styles.title}>Le Ngoc Anh</div>
             <button className={styles.delete_button} onClick={() => navigate(`/listemp/deactive`)}>Vô hiệu hóa</button>
             <form>

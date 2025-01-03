@@ -1,6 +1,6 @@
 import React from 'react';
-import Navbar from '../components/NavigationBar/Navbar';
-import styles from '../styles/customers.module.scss';
+import Navbar from '../../components/NavigationBar/Navbar';
+import styles from '../../styles/customers.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import customerApi from '../api/customerApi';
@@ -20,7 +20,6 @@ const Customers = () => {
   }, [])
   return (
     <>
-      <Navbar />
       <div className={styles.content}>
         <h2 className={styles.title}>Danh sách khách hàng</h2>
         <button className={styles.btn} onClick={() => navigate('/listcus/add')}>Thêm khách hàng</button>

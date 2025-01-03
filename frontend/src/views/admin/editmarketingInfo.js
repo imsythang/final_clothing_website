@@ -1,4 +1,4 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/editmarketingInfo.module.scss';
 import { useNavigate, useParams } from "react-router-dom";
 import { useState } from "react";
@@ -18,7 +18,6 @@ function EditMarketingInfo() {
 
     return (
         <>
-            <Navbar />
             <div className={styles.title}>Mã tiếp thị: {marketingId}</div>
             <button className={styles.delete_button} onClick={() => navigate(`/listmarketing/deactive`)}>Ngừng tiếp thị</button>
             <form>

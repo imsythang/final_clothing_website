@@ -1,4 +1,4 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/AddSupply.module.scss';
 import { useNavigate } from "react-router-dom";
 function AddSupply() {
@@ -8,7 +8,6 @@ function AddSupply() {
     };
     return (
         <>
-            <Navbar />
             <div className={styles.content}>
                 <h1>Thêm nhà cung cấp</h1>
                 <form>

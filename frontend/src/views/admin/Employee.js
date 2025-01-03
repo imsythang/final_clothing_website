@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from '../components/NavigationBar/Navbar';
+import Navbar from '../../components/NavigationBar/Navbar';
 import styles from '../styles/Orders.module.scss'
 import { useEffect, useState } from 'react';
 import employeeApi from '../api/employeeApi';
@@ -16,7 +16,6 @@ const Employee = () => {
     let navigate = useNavigate();
     return (
         <>
-            <Navbar />
             <h2 className={styles.title}>Danh sách nhân viên</h2>
             <table className={styles.table}>
                 <thead>

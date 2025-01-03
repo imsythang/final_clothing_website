@@ -1,5 +1,5 @@
 import React from 'react';
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/cusInfo.module.scss';
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -39,7 +39,6 @@ function CusInfo() {
 
     return (
         <>
-            <Navbar />
             <div className={styles.title}>{customer.name || "Thông tin khách hàng"}</div>
             <button className={styles.delete_button} onClick={() => alert("Vô hiệu hóa khách hàng!")}>Vô hiệu hóa</button>
             <form>

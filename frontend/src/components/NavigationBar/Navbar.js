@@ -1,15 +1,27 @@
-import React, { useState } from "react";
-import styles from "./Navbar.module.scss";
-import { useParams, useNavigate } from "react-router-dom"
-import Header from "../Header/Header";
 import { faShopify } from "@fortawesome/free-brands-svg-icons";
+import { faChevronDown, faChevronRight, faHouse, faHouseChimneyWindow, faReceipt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faHouseChimneyWindow, faReceipt, faChevronRight, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import Header from "../Header/Header";
+import styles from "./Navbar.module.scss";
 function NavbarAdmin() {
     let navigate = useNavigate();
     const shop_id = 20;
     const [isOpen, setIsOpen] = useState(false);
     const [isOpen1, setIsOpen1] = useState(false);
+
+    // Logout function
+    const handleLogout = () => {
+        window.localStorage.removeItem("LoggedIn");
+        window.localStorage.removeItem("token"); // Assuming you store token under 'token'
+        window.localStorage.removeItem("role");
+
+
+        // Redirect to home or login page
+        navigate("/"); // Redirect to the homepage or any other page
+    };
+
     return (
         <>
             <Header />
@@ -61,7 +73,7 @@ function NavbarAdmin() {
                 <li className={styles.menu_item5} onClick={() => navigate(`/listemp`)}>
                     Khuyến mãi
                 </li>
-                <li className={styles.menu_item6} onClick={() => navigate(`/listmarketing`)}>
+                <li className={styles.menu_item6} onClick={handleLogout}>
                     Đăng xuất
                 </li>
             </div>

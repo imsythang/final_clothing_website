@@ -1,11 +1,10 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/addnewEmp.module.scss';
 import { useNavigate } from "react-router-dom";
 function AddNewEmp() {
     const navigate = useNavigate()
     return (
         <>
-            <Navbar />
             <div className={styles.title}>Thêm nhân viên</div>
             <form>
                 <div className={styles.content}>

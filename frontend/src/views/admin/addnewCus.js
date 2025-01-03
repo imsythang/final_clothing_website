@@ -1,11 +1,10 @@
-import Navbar from "../components/NavigationBar/Navbar";
+import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../styles/addnewCus.module.scss';
 import { useNavigate } from "react-router-dom";
 function AddNewCus() {
     const navigate = useNavigate()
     return (
         <>
-            <Navbar />
             <div className={styles.title}>Thêm khách hàng</div>
             <form>
                 <div className={styles.content}>
