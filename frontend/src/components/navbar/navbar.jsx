@@ -37,7 +37,7 @@ function Navbar() {
 
             <div style={{ display: "flex" }}>
                 <li>
-                    <Link to="/newArrival" className="element">
+                    <Link to="/new" className="element">
                         Sản phẩm mới
                     </Link>
                 </li>
@@ -70,9 +70,9 @@ function Navbar() {
                                 <FontAwesomeIcon icon={faMagnifyingGlass} />
                             </Link>
                         </li>
-                        <li style={{display:"flex", alignItems: "center", position: "relative", marginRight: "60px" }}>
+                        <li style={{ display: "flex", alignItems: "center", position: "relative", marginRight: "60px" }}>
                             <div className="user__icon">
-                                <FontAwesomeIcon icon={faUser} style={{display:"block"}}/>
+                                <FontAwesomeIcon icon={faUser} style={{ display: "block" }} />
                                 <div className="show__option">
                                     <button onClick={handleLogout} className="logout">
                                         Đăng xuất
@@ -86,7 +86,7 @@ function Navbar() {
                     </>
                 ) : (
                     <>
-                       
+
                         <li>
                             <Link to="#search" className="element">
                                 <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: 'black' }} />

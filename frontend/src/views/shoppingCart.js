@@ -26,7 +26,7 @@ function ShoppingCart() {
     }
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <BasicBreadcrumbs links={breadcrumbLinks} />
             <h2 className={styles.title}>Giỏ hàng </h2>
             <CartItem items={list} onRemove={handleRemove} />

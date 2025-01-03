@@ -8,7 +8,7 @@ import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 function NavbarAfterLogin() {
     return (
         <ul className="navbar">
-            <li><a href="/new" className="home">
+            <li><a href="/homepage" className="home">
                 <FontAwesomeIcon className='home__icon' icon={faHouse} />
                 Nét
             </a></li>

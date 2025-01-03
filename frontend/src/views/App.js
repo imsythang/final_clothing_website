@@ -1,5 +1,5 @@
 
-// import Navbar from '../components/navbar/navbar';
+import Navbar from '../components/navbar/navbar';
 // import NavbarAfterLogin from '../components/navbar/navbarAfterLogin';
 import NavbarAdmin from '../components/NavigationBar/Navbar';
 import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
@@ -17,7 +17,7 @@ import WriteReview from "./writeReview";
 import WomenProduct from './Womenpro';
 import MenProduct from './Menpro';
 import NProduct from './Nproduct';
-import HomePage from './homePage';
+import HomePage from './homePage.jsx';
 function App() {
   const isLoggedIn = window.localStorage.getItem("LoggedIn");
   const role = window.localStorage.getItem("role");
@@ -26,8 +26,10 @@ function App() {
   return (
     <Router>
       <div className="app">
+        <Navbar />
         <Routes>
           {/* unauthorized route */}
+          <Route path='/homepage' element={<HomePage />} />
           <Route path='/' element={<HomePage />} />
           <Route path="/men" element={<MenProduct />} />
           <Route path="/women" element={<WomenProduct />} />

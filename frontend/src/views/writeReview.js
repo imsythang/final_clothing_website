@@ -14,7 +14,7 @@ import style from '../styles/writeReview.module.scss';
 function WriteReview() {
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <div className={style.container}>
                 <div className={clsx(style1.grid, style1.wide)}>
                     <h1 className={style.heading}>AIRism Cotton Ribbed Polo Shirt</h1>
