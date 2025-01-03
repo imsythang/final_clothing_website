@@ -76,7 +76,7 @@
     text-align: center;
     color: #FFFFFF;
     border: 1px solid #FFFFFF;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.1s ease;
 
     font-family: 'Josefin Sans';
     font-style: normal;
@@ -88,12 +88,13 @@
 }
 
 .box:hover {
-    text-shadow: 
-        1px 1px 2px #FFE8D3,  /* Bóng phía dưới bên phải */
-        -1px -1px 2px #FFE8D3, /* Bóng phía trên bên trái */
-        -1px 1px 2px #FFE8D3,  /* Bóng phía dưới bên trái */
-        1px -1px 2px #FFE8D3;  /* Bóng phía trên bên phải */
-    color: #000;
+    // text-shadow: 
+    //     1px 1px 2px #FFE8D3,  /* Bóng phía dưới bên phải */
+    //     -1px -1px 2px #FFE8D3, /* Bóng phía trên bên trái */
+    //     -1px 1px 2px #FFE8D3,  /* Bóng phía dưới bên trái */
+    //     1px -1px 2px #FFE8D3;  /* Bóng phía trên bên phải */
+    // color: #000;
+    background-color: rgba(128, 128, 128, 0.2);
 }
 
 
@@ -189,6 +190,11 @@
 
     color: #FFFFFF;
 
+
+}
+.gender_text:hover {
+    text-decoration-thickness: 1px;
+    text-decoration: underline;
 }
 
 .footer_box {

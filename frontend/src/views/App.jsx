@@ -8,6 +8,7 @@ import ProtectedRoute from '../components/protectedRoute';
 import SignInFormApp from '../components/signIn/signInForm';
 import SignUpFormApp from '../components/signUp/signUpForm';
 import Warehouse from '../components/warehouse/warehouse';
+import Home from './admin/homepage';
 import Profile from './admin/infoCustomer';
 import MenProduct from './user/Menpro';
 import NProduct from './user/Nproduct';
@@ -17,7 +18,6 @@ import Product from "./user/productDetail";
 import ShoppingCart from './user/shoppingCart';
 import SizeGuild from './user/sizeGuild';
 import WriteReview from "./user/writeReview";
-import Home from './admin/homepage';
 // import Orders from './admin/Orders';
 function App() {
   const isLoggedIn = window.localStorage.getItem("LoggedIn");
@@ -46,12 +46,16 @@ function App() {
           <Route path="/writereview" element={<WriteReview />} />
 
           {/* protected route */}
-          <Route element={<ProtectedRoute />} />
+          <Route element={<ProtectedRoute />}>
+
+
+
+          </Route>
+
+
           {/* admin */}
           {/* <Route path='/customer' element= {<Customers />} /> */}
-          {/* <Route path='/dasboard' element={<Dashboard />} /> */}
           <Route path='/admin/homepage' element={<Home />} />
-          {/* <Route path='/listorder' element={<Orders />} /> */}
           <Route path="/categorypage" element={<CategoryPage />} />
           <Route path="/productpage" element={<ProductPage />} />
           <Route path="/warehouse" element={<Warehouse />} />

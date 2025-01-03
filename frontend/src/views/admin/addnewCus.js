@@ -1,5 +1,5 @@
 import Navbar from "../../components/NavigationBar/Navbar";
-import styles from '../styles/addnewCus.module.scss';
+import styles from '../../styles/addnewCus.module.scss';
 import { useNavigate } from "react-router-dom";
 function AddNewCus() {
     const navigate = useNavigate()

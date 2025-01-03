@@ -1,5 +1,5 @@
 import Navbar from "../../components/NavigationBar/Navbar";
-import styles from '../styles/AddSupply.module.scss';
+import styles from '../../styles/AddSupply.module.scss';
 import { useNavigate } from "react-router-dom";
 function AddSupply() {
     const navigate = useNavigate();

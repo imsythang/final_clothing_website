@@ -1,5 +1,5 @@
 import Navbar from "../../components/NavigationBar/Navbar";
-import styles from '../styles/addnewMarketing.module.scss';
+import styles from '../../styles/addnewMarketing.module.scss';
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 function AddNewMarketing() {

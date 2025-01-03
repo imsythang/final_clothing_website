@@ -1,82 +1,81 @@
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { faChevronDown, faChevronUp, faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
+import axios from 'axios'; // Import Axios
 import Filter from "../../components/Filter2/filter2";
 import BasicBreadcrumbs from "../../components/breadcrumb/breadcrumb";
-import image1 from '../../img/Women/Product1.jpg';
-import image10 from '../../img/Women/Product10.jpg';
-import image11 from '../../img/Women/Product11.jpg';
-import image12 from '../../img/Women/Product12.jpg';
-import image2 from '../../img/Women/Product2.jpg';
-import image3 from '../../img/Women/Product3.jpg';
-import image4 from '../../img/Women/Product4.jpg';
-import image5 from '../../img/Women/Product5.jpg';
-import image6 from '../../img/Women/Product6.jpg';
-import image7 from '../../img/Women/Product7.jpg';
-import image8 from '../../img/Women/Product8.jpg';
-import image9 from '../../img/Women/Product9.jpg';
-import styles from "../../styles/Womenpro.module.scss";
-
-import { faChevronDown, faChevronUp } from '@fortawesome/free-solid-svg-icons';
-import { CSSTransition } from 'react-transition-group';
 import Footer from '../../components/footer/footer';
+import styles from "../../styles/Nproduct.module.scss";
+
+
 function WomenProduct() {
     const breadcrumbLinks = [
         { name: 'Nét - Homepage', path: '/' },
         { name: 'Trang phục nữ', path: '/women' },
     ];
-
     const [openDiv, setOpenDiv] = useState(null);
     const [selectedOption, setSelectedOption] = useState('Nổi bật');
+    const [products, setProducts] = useState([]); // Dữ liệu sản phẩm từ API
+    const [loading, setLoading] = useState(true); // Trạng thái tải
 
     const handleFeaturedClick = (index, option) => {
         setOpenDiv(openDiv === index ? null : index);
         setSelectedOption(option);
     };
 
-    const products = [
-        { id: 1, image: image1, title: 'Women', size: 'XS-XXL', description: 'AIRism Cotton Ribbed Polo Shirt', price: '203.000 VND', rating: 5, reviews: '(149)', colors: 5 },
-        { id: 2, image: image2, title: 'Women', size: 'XS-XXL', description: 'Halter Neck Bra Sleeveless Top', price: '319.000 VND', rating: 5, reviews: '(201)', colors: 5 },
-        { id: 3, image: image3, title: 'Women', size: 'XS-XXL', description: 'Rayon Skipper Blouse | 3/4 Sleeve | Striped', price: '400.000 VND', rating: 5, reviews: '(59)', colors: 2 },
-        { id: 4, image: image4, title: 'Women', size: 'S-XXL', description: 'Rayon Skipper Blouse | 3/4 Sleeve', price: '489.000 VND', rating: 4, reviews: '(56)', colors: 4 },
-        { id: 5, image: image5, title: 'Women', size: 'XS-XXL', description: 'Rayon Skipper Blouse | 3/4 Sleeve', price: '489.000 VND', rating: 0, reviews: '', colors: 1 },
-        { id: 6, image: image6, title: 'Women', size: 'XS-L', description: 'Cotton Skirt Embroidery', price: '269.000 VND', rating: 5, reviews: '(36)', colors: 3 },
-        { id: 7, image: image7, title: 'Women', size: 'XS-XXL', description: 'MAGIC FOR ALL x Yu Nagaba UT', price: '189.000 VND', rating: 5, reviews: '(156)', colors: 1 },
-        { id: 8, image: image8, title: 'Women', size: 'XS-XXL', description: 'MAGIC FOR ALL x Yu Nagaba UT', price: '200.000 VND', rating: 0, reviews: '', colors: 1 },
-        { id: 9, image: image9, title: 'Women', size: 'XS-XXL', description: 'MAGIC FOR ALL x Yu Nagaba UT', price: '213.000 VND', rating: 5, reviews: '(47)', colors: 3 },
-        { id: 10, image: image10, title: 'Unisex', size: 'XS-XXL', description: 'Sweat Pants', price: '389.000 VND', rating: 5, reviews: '(21)', colors: 4 },
-        { id: 11, image: image11, title: 'Unisex', size: 'XS-XXL', description: 'Sweat Pants', price: '389.000 VND', rating: 5, reviews: '(21)', colors: 5 },
-        { id: 12, image: image12, title: 'Unisex', size: 'XS-XXL', description: 'Sweat Pants', price: '400.000 VND', rating: 0, reviews: '', colors: 2 }
+    // Gọi API khi component được mount
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await axios.get('http://localhost:8080/global/product/woman'); // Gọi API bằng Axios
+                console.log(response);
+                setProducts(response.data); // Cập nhật danh sách sản phẩm
+                setLoading(false); // Hoàn tất tải
+            } catch (error) {
+                console.error("Lỗi khi gọi API:", error);
+                setLoading(false);
+            }
+        };
 
-    ];
+        fetchProducts();
+    }, []);
 
     const Product = ({ product }) => {
-        const { image, title, size, description, price, rating, reviews, colors } = product;
+        const { imageUrl, name, priceSelling, ratingCount, ratingAverage } = product;
         return (
-            <div className={`product product_${product.id}`}>
-                <img className={`image_${product.id}`} src={image} alt={description} />
-                <div className={styles.color}>
-                    {[...Array(colors)].map((_, index) => (
-                        <i key={index} className={`color${index + 1}`} />
-                    ))}
+            <div className={`${styles.product} product product_${product.productID}`}>
+                <img className={`image_${product.productID}`} src={imageUrl} alt={name} />
+
+                <div style={{ padding: "0 0 15px 10px" }}>
+                    <p className={styles.title}>{name}</p>
+                    <p className={styles.price}>{priceSelling.toLocaleString()} VND</p>
+
+                    {ratingAverage > 0 && (
+                        <div className={styles.iconstar}>
+                            <span>
+                                {/* Hiển thị sao đầy đủ */}
+                                {[...Array(Math.floor(ratingAverage))].map((_, index) => (
+                                    <FontAwesomeIcon key={`full-${index}`} icon={faStar} />
+                                ))}
+
+                                {/* Hiển thị sao nửa nếu cần */}
+                                {ratingAverage % 1 !== 0 && (
+                                    <FontAwesomeIcon key="half" icon={faStarHalfAlt} style={{ opacity: 0.5 }} />
+                                )}
+
+                                {/* Hiển thị sao rỗng nếu có */}
+                                {[...Array(5 - Math.ceil(ratingAverage))].map((_, index) => (
+                                    <FontAwesomeIcon key={`empty-${index}`} icon={faStar} style={{ color: 'lightgray' }} />
+                                ))}
+                            </span>
+                            <span style={{ fontSize: "20px", position: "relative", left: "5px", top: "-6px", color: "#000" }}>
+                                ({ratingCount})
+                            </span>
+                        </div>
+                    )}
                 </div>
-                <p className={styles.title}>{title}</p>
-                <p className={styles.size}>{size}</p>
-                <p className={styles.description}>{description}</p>
-                <p className={styles.price}>{price}</p>
-
-                {rating > 0 && (
-                    <div className={styles.iconstar}>
-                        <span>
-                            {[...Array(rating)].map((_, index) => (
-                                <FontAwesomeIcon key={index} icon={faStar} />
-                            ))}
-                        </span>
-                    </div>
-                )}
-                <span className={styles.count}>{reviews}</span>
             </div>
-
         );
     };
 
@@ -93,7 +92,7 @@ function WomenProduct() {
             <div className={styles.container}>
                 <div className={styles.left}>
                     <h2 >Kết quả </h2>
-                    <h3 >12 mục</h3>
+                    <h3>{products.length} mục</h3>
                     <h4 >Trang phục nữ</h4>
                     <Filter />
                 </div>
@@ -127,7 +126,8 @@ function WomenProduct() {
                             <p onClick={() => handleFeaturedClick(0, 'Cao tới thấp')}>Cao tới thấp</p>
                         </div>
                     </CSSTransition>
-                    <ProductList />
+                    {/* Hiển thị loading hoặc danh sách sản phẩm */}
+                    {loading ? <p>Đang tải sản phẩm...</p> : <ProductList />}
                     <Footer />
 
                 </div>

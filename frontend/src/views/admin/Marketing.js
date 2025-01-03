@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/NavigationBar/Navbar';
-import styles from '../styles/marketing.module.scss'
+import styles from '../../styles/marketing.module.scss'
 import { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 const Employee = () => {

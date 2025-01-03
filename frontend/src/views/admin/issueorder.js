@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/NavigationBar/Navbar';
-import styles from '../styles/issueorder.module.scss';
+import styles from '../../styles/issueorder.module.scss';
 import { useState, useEffect } from 'react';
 import orderApi from '../api/orderApi';
 const Issueorder = () => {

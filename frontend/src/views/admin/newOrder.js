@@ -1,6 +1,6 @@
 import React from 'react';
 import Navbar from '../../components/NavigationBar/Navbar';
-import styles from '../styles/Orders.module.scss'
+import styles from '../../styles/Orders.module.scss'
 import { useNavigate } from 'react-router-dom';
 const NewOrder = () => {
     const navigate = useNavigate();

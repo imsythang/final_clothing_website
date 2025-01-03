@@ -1,5 +1,5 @@
 import Navbar from "../../components/NavigationBar/Navbar";
-import styles from '../styles/empInfo.module.scss';
+import styles from '../../styles/empInfo.module.scss';
 import { useNavigate } from "react-router-dom";
 function EmpInfo() {
     const navigate = useNavigate()
