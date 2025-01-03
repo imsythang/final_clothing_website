@@ -27,7 +27,7 @@ function App() {
   return (
     <Router>
       <div className="app">
-        {/* <Navbar /> */}
+        <Navbar />
         <Routes>
 
           {/* unauthorized route */}
