@@ -1,17 +1,16 @@
-import { Link } from "react-router-dom";
+import clsx from "clsx";
 import { useState } from 'react';
-import clsx from "clsx"
+import { Link } from "react-router-dom";
 
-import Navbar from "../components/navbar/navbar";
-import Footer from '../components/footer/footer'
+import Footer from '../components/footer/footer';
+import ImageSlider from '../components/product/imageSlider';
 import SlideToggle from '../components/product/slideToggle';
-import ImageSlider from '../components/product/imageSlider'
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import style1 from "../styles/grid.module.scss"
-import style from '../styles/product.module.scss'
+import style1 from "../styles/grid.module.scss";
+import style from '../styles/product.module.scss';
 
 import image1 from '../img/product_image1.avif';
 import image2 from '../img/product_image2.avif';
@@ -28,7 +27,6 @@ function Product() {
 
     return (
         <>
-            <Navbar />
             <div className={style.container}>
                 <div className={clsx(style1.grid, style1.wide)}>
                     <h1 className={style.heading}>Thông tin sản phẩm</h1>

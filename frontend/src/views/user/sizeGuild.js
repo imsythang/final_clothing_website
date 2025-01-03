@@ -1,19 +1,16 @@
 import React from 'react';
 // import { connect } from 'react-redux'
-import style from '../styles/sizeGuild.module.scss';
+import style from '../../styles/sizeGuild.module.scss';
 // import Navbar from '../components/navbar/navbar'
-import Footer from "../components/footer/footer";
-import Navbar from '../components/navbar/navbar';
-import Bang1 from '../img/sizeGuild/Bang_1.png';
-import Bang2 from '../img/sizeGuild/Bang_2.png';
-import Bang3 from '../img/sizeGuild/Bang_3.png';
-import Bang4 from '../img/sizeGuild/Bang_4.png';
+import Footer from "../../components/footer/footer";
+import Bang1 from '../../img/sizeGuild/Bang_1.png';
+import Bang2 from '../../img/sizeGuild/Bang_2.png';
+import Bang3 from '../../img/sizeGuild/Bang_3.png';
+import Bang4 from '../../img/sizeGuild/Bang_4.png';
 
-export default function sizeGuild () {
+export default function SizeGuild () {
   return (
     <>
-    
-        <Navbar />
         <div className={style.page}>
             <h1 className={style.title}>Hướng dẫn chọn kích cỡ quần áo</h1>
             <div className={style.note}>

@@ -61,7 +61,7 @@ function Navbar() {
                             </Link>
                         </li>
                         <li>
-                            <Link to="#help" className="element">
+                            <Link to="/help" className="element">
                                 <FontAwesomeIcon icon={faCircleInfo} />
                             </Link>
                         </li>

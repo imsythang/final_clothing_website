@@ -1,11 +1,10 @@
 
 import React from "react";
-import BasicBreadcrumbs from "../components/breadcrumb/breadcrumb";
-import CartItem from "../components/cartItem/cartItem";
-import Footer from "../components/footer/footer";
-import Navbar from "../components/navbar/navbar";
-import OrderSummary from "../components/orderSummary/orderSummary";
-import styles from "../styles/shoppingCart.module.scss";
+import BasicBreadcrumbs from "../../components/breadcrumb/breadcrumb";
+import CartItem from "../../components/cartItem/cartItem";
+import Footer from "../../components/footer/footer";
+import OrderSummary from "../../components/orderSummary/orderSummary";
+import styles from "../../styles/shoppingCart.module.scss";
 function ShoppingCart() {
     const breadcrumbLinks = [
         { name: 'Nét - Homepage', path: '/' },
@@ -26,7 +25,6 @@ function ShoppingCart() {
     }
     return (
         <>
-            <Navbar />
             <BasicBreadcrumbs links={breadcrumbLinks} />
             <h2 className={styles.title}>Giỏ hàng </h2>
             <CartItem items={list} onRemove={handleRemove} />

@@ -1,23 +1,18 @@
+import { faChevronDown, faChevronUp, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import BasicBreadcrumbs from "../components/breadcrumb/breadcrumb"
-import NavbarAfterLogin from "../components/navbar/navbarAfterLogin"
-import styles from "../styles/Nproduct.module.scss"
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-import Filter from "../components/Filter2/filter2"
-import image1 from '../img/new/product1.jpg';
-import image2 from '../img/new/product2.jpg';
-import image3 from '../img/new/product3.jpg';
-import image4 from '../img/new/product4.jpg';
-import image5 from '../img/new/product5.jpg';
-import image6 from '../img/new/product1.jpg';
-import image7 from '../img/new/product7.jpg';
-import image8 from '../img/new/product8.jpg';
-import image9 from '../img/new/product2.jpg';
-import Footer from '../components/footer/footer';
 import { CSSTransition } from 'react-transition-group';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
+import Filter from "../../components/Filter2/filter2";
+import BasicBreadcrumbs from "../../components/breadcrumb/breadcrumb";
+import Footer from '../../components/footer/footer';
+import { default as image1, default as image6 } from '../../img/new/product1.jpg';
+import { default as image2, default as image9 } from '../../img/new/product2.jpg';
+import image3 from '../../img/new/product3.jpg';
+import image4 from '../../img/new/product4.jpg';
+import image5 from '../../img/new/product5.jpg';
+import image7 from '../../img/new/product7.jpg';
+import image8 from '../../img/new/product8.jpg';
+import styles from "../../styles/Nproduct.module.scss";
 function NProduct() {
     const breadcrumbLinks = [
         { name: 'Nét - Homepage', path: '/' },
@@ -83,7 +78,6 @@ function NProduct() {
     );
     return (
         <>
-            <NavbarAfterLogin />
             <BasicBreadcrumbs links={breadcrumbLinks} />
             <div className={styles.container}>
                 <div className={styles.left}>

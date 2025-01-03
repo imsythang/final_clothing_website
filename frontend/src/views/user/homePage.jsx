@@ -5,12 +5,11 @@ import { faFacebook, faInstagram, faTiktok } from '@fortawesome/free-brands-svg-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import { Link } from "react-router-dom";
-import image2 from '../img/HomepageImg/HomeIMG2.avif';
-import image3 from '../img/HomepageImg/HomeIMG3.avif';
-import image4 from '../img/HomepageImg/HomeIMG4.avif';
-import logoImg from '../img/HomepageImg/logo.png';
-import style from '../styles/homepage.module.scss';
-import Navbar from '../components/navbar/navbar';
+import image2 from '../../img/HomepageImg/HomeIMG2.avif';
+import image3 from '../../img/HomepageImg/HomeIMG3.avif';
+import image4 from '../../img/HomepageImg/HomeIMG4.avif';
+import logoImg from '../../img/HomepageImg/logo.png';
+import style from '../../styles/homepage.module.scss';
 
 function Header() {
     return (

@@ -1,31 +1,24 @@
+import { faChevronDown, faChevronUp, faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import BasicBreadcrumbs from "../components/breadcrumb/breadcrumb"
-import NavbarAfterLogin from "../components/navbar/navbarAfterLogin"
-import styles from "../styles/Womenpro.module.scss"
-import { faStar } from '@fortawesome/free-solid-svg-icons'
-import Filter from "../components/Filter2/filter2"
-import image1 from '../img/Women/Product1.jpg';
-import image2 from '../img/Women/Product2.jpg';
-import image3 from '../img/Women/Product3.jpg';
-import image4 from '../img/Women/Product4.jpg';
-import image5 from '../img/Women/Product5.jpg';
-import image6 from '../img/Women/Product6.jpg';
-import image7 from '../img/Women/Product7.jpg';
-import image8 from '../img/Women/Product8.jpg';
-import image9 from '../img/Women/Product9.jpg';
-import image10 from '../img/Women/Product10.jpg';
-import image11 from '../img/Women/Product11.jpg';
-import image12 from '../img/Women/Product12.jpg';
-
-import Footer from '../components/footer/footer';
 import { CSSTransition } from 'react-transition-group';
-import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
-import { faChevronUp } from '@fortawesome/free-solid-svg-icons'
-function WomenProduct() {
+import Filter from "../../components/Filter2/filter2";
+import BasicBreadcrumbs from "../../components/breadcrumb/breadcrumb";
+import Footer from '../../components/footer/footer';
+import image1 from '../../img/Men/Product1.jpg';
+import image2 from '../../img/Men/Product2.jpg';
+import image3 from '../../img/Men/Product3.jpg';
+import image4 from '../../img/Men/Product4.jpg';
+import image5 from '../../img/Men/Product5.jpg';
+import image6 from '../../img/Men/Product6.jpg';
+import image7 from '../../img/Men/Product7.jpg';
+import image8 from '../../img/Men/Product8.jpg';
+import image9 from '../../img/Men/Product9.jpg';
+import styles from "../../styles/Menpro.module.scss";
+function MenProduct() {
     const breadcrumbLinks = [
         { name: 'Nét - Homepage', path: '/' },
-        { name: 'Trang phục nữ', path: '/women' },
+        { name: 'Trang phục nam', path: '/' },
     ];
 
     const [openDiv, setOpenDiv] = useState(null);
@@ -37,19 +30,15 @@ function WomenProduct() {
     };
 
     const products = [
-        { id: 1, image: image1, title: 'Women', size: 'XS-XXL', description: 'AIRism Cotton Ribbed Polo Shirt', price: '203.000 VND', rating: 5, reviews: '(149)', colors: 5 },
-        { id: 2, image: image2, title: 'Women', size: 'XS-XXL', description: 'Halter Neck Bra Sleeveless Top', price: '319.000 VND', rating: 5, reviews: '(201)', colors: 5 },
-        { id: 3, image: image3, title: 'Women', size: 'XS-XXL', description: 'Rayon Skipper Blouse | 3/4 Sleeve | Striped', price: '400.000 VND', rating: 5, reviews: '(59)', colors: 2 },
-        { id: 4, image: image4, title: 'Women', size: 'S-XXL', description: 'Rayon Skipper Blouse | 3/4 Sleeve', price: '489.000 VND', rating: 4, reviews: '(56)', colors: 4 },
-        { id: 5, image: image5, title: 'Women', size: 'XS-XXL', description: 'Rayon Skipper Blouse | 3/4 Sleeve', price: '489.000 VND', rating: 0, reviews: '', colors: 1 },
-        { id: 6, image: image6, title: 'Women', size: 'XS-L', description: 'Cotton Skirt Embroidery', price: '269.000 VND', rating: 5, reviews: '(36)', colors: 3 },
-        { id: 7, image: image7, title: 'Women', size: 'XS-XXL', description: 'MAGIC FOR ALL x Yu Nagaba UT', price: '189.000 VND', rating: 5, reviews: '(156)', colors: 1 },
-        { id: 8, image: image8, title: 'Women', size: 'XS-XXL', description: 'MAGIC FOR ALL x Yu Nagaba UT', price: '200.000 VND', rating: 0, reviews: '', colors: 1 },
-        { id: 9, image: image9, title: 'Women', size: 'XS-XXL', description: 'MAGIC FOR ALL x Yu Nagaba UT', price: '213.000 VND', rating: 5, reviews: '(47)', colors: 3 },
-        { id: 10, image: image10, title: 'Unisex', size: 'XS-XXL', description: 'Sweat Pants', price: '389.000 VND', rating: 5, reviews: '(21)', colors: 4 },
-        { id: 11, image: image11, title: 'Unisex', size: 'XS-XXL', description: 'Sweat Pants', price: '389.000 VND', rating: 5, reviews: '(21)', colors: 5 },
-        { id: 12, image: image12, title: 'Unisex', size: 'XS-XXL', description: 'Sweat Pants', price: '400.000 VND', rating: 0, reviews: '', colors: 2 }
-
+        { id: 1, image: image1, title: 'Men', size: 'XS-XXL', description: 'Broadcloth Shirt | Button Down', price: '300.000 VND', rating: 5, reviews: '(52)', colors: 1 },
+        { id: 2, image: image2, title: 'Men', size: 'XS-XXL', description: 'Broadcloth Shirt | Button Down', price: '300.000 VND', rating: 5, reviews: '(20)', colors: 1 },
+        { id: 3, image: image3, title: 'Men', size: 'S-L', description: 'Broadcloth Shirt | Button Down', price: '300.000 VND', rating: 5, reviews: '(59)', colors: 1 },
+        { id: 4, image: image4, title: 'Unisex', size: 'XS-XXL', description: 'KAWS + Warhol UT', price: '203.000 VND', rating: 4, reviews: '(106)', colors: 1 },
+        { id: 5, image: image5, title: 'Unisex', size: 'XS-XXL', description: 'KAWS + Warhol Sweat Pants', price: '589.000 VND', rating: 0, reviews: '', colors: 1 },
+        { id: 6, image: image6, title: 'Unisex', size: 'XS-XXL', description: 'MAGIC FOR ALL x Yu Nagaba Sweatshirt', price: '500.000 VND', rating: 5, reviews: '(6)', colors: 1 },
+        { id: 7, image: image7, title: 'Men', size: 'XS-XXL', description: 'KENSHI YONEZU Short Sleeve UT (Ghibli)', price: '200.000 VND', rating: 5, reviews: '(15)', colors: 1 },
+        { id: 8, image: image8, title: 'Men', size: 'XS-XXL', description: 'The Louvre x Camille Hernot UT', price: '200.000 VND', rating: 0, reviews: '', colors: 1 },
+        { id: 9, image: image9, title: 'Unisex', size: 'XS-XXL', description: 'MAGIC FOR ALL x Yu Nagaba UT', price: '213.000 VND', rating: 5, reviews: '(47)', colors: 3 }
     ];
 
     const Product = ({ product }) => {
@@ -91,13 +80,12 @@ function WomenProduct() {
     );
     return (
         <>
-            <NavbarAfterLogin />
             <BasicBreadcrumbs links={breadcrumbLinks} />
             <div className={styles.container}>
                 <div className={styles.left}>
                     <h2 >Kết quả </h2>
-                    <h3 >12 mục</h3>
-                    <h4 >Trang phục nữ</h4>
+                    <h3 >9 mục</h3>
+                    <h4 >Trang phục nam</h4>
                     <Filter />
                 </div>
                 <div className={styles.right}>
@@ -140,4 +128,4 @@ function WomenProduct() {
     )
 
 }
-export default WomenProduct;
+export default MenProduct;

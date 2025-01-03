@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Footer from '../components/footer/footer';
-import Navbar from '../components/navbar/navbar';
 import styles from '../styles/inforcustomer.module.scss';
 function Profile() {
     const [formData, setFormData] = useState({
@@ -29,7 +28,6 @@ function Profile() {
 
     return (
         <>
-            <Navbar />
             <h2 className={styles.title}> Hồ sơ khách hàng</h2>
             <form className={styles.takeNote}>
                 <label className={styles.takeNoteTitle}>Ghi chú:
