@@ -78,7 +78,6 @@ export default function HomePage() {
 
     return (
         <>
-            <Navbar />
             <Header />
             <Body />
             <Footer />
