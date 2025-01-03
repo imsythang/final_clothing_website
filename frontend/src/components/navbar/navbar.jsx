@@ -2,7 +2,7 @@ import './navbar.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { faHouse } from '@fortawesome/free-solid-svg-icons';
+import { faHouse, faUser } from '@fortawesome/free-solid-svg-icons';
 import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { Link, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
@@ -21,6 +21,10 @@ function Navbar() {
         navigate("/"); // Redirect to the homepage or any other page
     };
 
+    const handNavigate = () => {
+        navigate("/myInfo");
+    }
+
     return (
         <ul className={clsx("navbar", { "logged-in": isLoggedIn, "guest": !isLoggedIn })}>
             <li>
@@ -31,10 +35,10 @@ function Navbar() {
             </li>
 
 
-            <div>
+            <div style={{ display: "flex" }}>
                 <li>
-                    <Link to="/women" className="element">
-                        Nữ
+                    <Link to="/newArrival" className="element">
+                        Sản phẩm mới
                     </Link>
                 </li>
 
@@ -44,70 +48,58 @@ function Navbar() {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/newArrival" className="element">
-                        Sản phẩm mới
+                    <Link to="/women" className="element">
+                        Nữ
                     </Link>
                 </li>
+
+                {isLoggedIn ? (
+                    <>
+                        <li>
+                            <Link to="/cart" className="element">
+                                <FontAwesomeIcon icon={faCartPlus} />
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="#help" className="element">
+                                <FontAwesomeIcon icon={faCircleInfo} />
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="#search" className="element">
+                                <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            </Link>
+                        </li>
+                        <li style={{display:"flex", alignItems: "center", position: "relative", marginRight: "60px" }}>
+                            <div className="user__icon">
+                                <FontAwesomeIcon icon={faUser} style={{display:"block"}}/>
+                                <div className="show__option">
+                                    <button onClick={handleLogout} className="logout">
+                                        Đăng xuất
+                                    </button>
+                                    <button onClick={handNavigate} className="logout">
+                                        Thông tin
+                                    </button>
+                                </div>
+                            </div>
+                        </li>
+                    </>
+                ) : (
+                    <>
+                       
+                        <li>
+                            <Link to="#search" className="element">
+                                <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: 'black' }} />
+                            </Link>
+                        </li>
+                        <li>
+                            <Link to="/signin" className="login" style={{ color: 'black' }}>
+                                Đăng nhập
+                            </Link>
+                        </li>
+                    </>
+                )}
             </div>
-            {isLoggedIn ? (
-                <div>
-                    <li>
-                        <button onClick={handleLogout} className="login">
-                            Đăng xuất
-                        </button>
-                    </li>
-                    <li>
-                        <Link to="/cart" className="element">
-                            <FontAwesomeIcon icon={faCartPlus} />
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="#help" className="element">
-                            <FontAwesomeIcon icon={faCircleInfo} />
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="#search" className="element">
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
-                        </Link>
-                    </li>
-
-                </div>
-
-            ) : (
-                <>
-                    <li>
-                        <Link to="/signin" className="login" style={{ color: 'black' }}>
-                            Đăng nhập
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/cart" className="element">
-                            <FontAwesomeIcon icon={faCartPlus} style={{ color: 'black' }} />
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="#search" className="element">
-                            <FontAwesomeIcon icon={faMagnifyingGlass} style={{ color: 'black' }} />
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/women" className="element" style={{ color: 'black' }}>
-                            Nữ
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/men" className="element" style={{ color: 'black' }}>
-                            Nam
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/newArrival" className="element" style={{ color: 'black' }}>
-                            Sản phẩm mới
-                        </Link>
-                    </li>
-                </>
-            )}
         </ul>
     );
 }

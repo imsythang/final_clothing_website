@@ -1,0 +1,46 @@
+.title {
+    position: absolute;
+    left: 20%;
+    top: 30%;
+    font-family: "Josefin Sans";
+    color: #60443a;
+}
+
+.table {
+    position: absolute;
+    left: 20%;
+    top: 40%;
+    border-collapse: collapse;
+    width: 70%;
+    padding: 5px 10px;
+    font-family: "Josefin Sans";
+
+    td,
+    th {
+        border: 2px solid #60443a;
+        padding: 8px;
+    }
+
+    tr {
+        background-color: #fff;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    tr:hover {
+        background-color: #fff2e3;
+    }
+
+    th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: center;
+        background-color: #60443a;
+        color: white;
+        font-size: 20px;
+    }
+
+    input {
+        text-align: center;
+    }
+}

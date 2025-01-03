@@ -1,0 +1,255 @@
+.content {
+  position: absolute;
+  left: 20%;
+  top: 30%;
+  font-family: "Josefin Sans";
+  background-color: #ffffff;
+  flex: 1;
+  display: flex;
+  padding: 20px;
+}
+
+.content h1 {
+  width: 100%;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 40px;
+  font-family: "Josefin Sans";
+  color: #60443a;
+}
+
+.form_container {
+  margin-left: -250px;
+  margin-top: 100px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.Supply_detail {
+  background-color: #fff2e3;
+  width: 703px;
+  height: 295px;
+}
+
+.form_group label {
+  display: block;
+  margin: 5px 25px;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.form_group input,
+.form_group textarea {
+  margin-left: 25px;
+  width: 627px;
+  padding: 10px;
+  border: 2px solid #000000;
+  background-color: #fff2e3;
+  font-size: 15px;
+  font-family: "Josefin Sans";
+  color: #000000;
+  font-weight: lighter;
+}
+
+textarea {
+  height: 140px;
+}
+
+.Note label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.Note {
+  background-color: #fff2e3;
+  width: 301px;
+  height: 102px;
+
+  p {
+    padding: 0 15px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  textarea {
+    margin: -5px 10px;
+    width: 275px;
+    height: 45px;
+    font-size: 15px;
+    border: none;
+    background-color: #fff2e3;
+  }
+
+  label {
+    margin-left: 20px;
+    font-size: 15px;
+    font-weight: lighter;
+  }
+}
+
+.classify {
+  margin-left: -50px;
+  margin-top: 450px;
+  background-color: #fff2e3;
+  width: 703px;
+  height: 175px;
+  position: absolute;
+  label {
+    padding: 10px;
+    margin: 0 15px;
+    display: block;
+    font-weight: bold;
+    color: #000000;
+    font-size: 15px;
+  }
+}
+
+.classification_options {
+  display: grid;
+  grid-template-columns: auto auto auto;
+
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    font-size: 15px;
+    font-weight: lighter;
+  }
+}
+
+.above {
+  margin-left: 27%;
+  display: grid;
+  grid-template-rows: auto auto;
+}
+
+.form_group1 {
+}
+
+.form_group2,
+.form_group3 {
+  margin-right: 45%;
+  display: grid;
+  grid-template-columns: auto auto;
+
+  label {
+    font-size: 15px;
+    font-weight: lighter;
+    color: #000000;
+  }
+
+  button {
+    margin-top: 8px;
+    background-color: #fff2e3;
+    /* width: 70px; */
+    text-align: center;
+    align-items: center;
+    cursor: pointer;
+    border: 1px solid #000000;
+  }
+}
+
+.create_table {
+  margin: 20px 0px;
+  background-color: #fff2e3;
+  width: 703px;
+  height: 225px;
+  position: absolute;
+  margin-left: -45px;
+  margin-top: 700px;
+
+  label {
+    font-size: 15px;
+    font-weight: bold;
+    margin-left: 25px;
+  }
+
+  img {
+    margin-top: -2px;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+  }
+
+  .version {
+    margin-left: 450px;
+    padding: 10px;
+    background-color: #fff2e3;
+    border: none;
+    text-align: left;
+    color: #1919e8;
+    cursor: pointer;
+  }
+
+  .remove_btn {
+    background-color: #fff2e3;
+    border: 1px solid #000000;
+    cursor: pointer;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  table th,
+  table td {
+    text-align: left;
+    padding: 10px;
+    border: none;
+    text-align: center;
+    font-size: 15px;
+    font-weight: lighter;
+  }
+
+  table th {
+    background-color: #fff2e3;
+  }
+}
+
+.remove_btn {
+  background-color: #fff2e3;
+  border: 1px solid #000000;
+  cursor: pointer;
+}
+
+.save button {
+  position: absolute;
+  background-color: #fff;
+  margin-top: 900px;
+  margin-right: 60px;
+  padding: 2px 30px;
+  border: 3px solid #60443a;
+  cursor: pointer;
+  color: #60443a;
+  font-family: "Josefin Sans";
+  font-weight: 400px;
+  font-size: 20px;
+  position: absolute;
+  top: 20%;
+  right: 1%;
+
+  &:hover {
+    background-color: #60443a;
+    color: #fff;
+  }
+}
+
+.cancel button {
+  width: 150px;
+  justify-self: flex-end;
+  padding: 10px;
+  background-color: #e74c3c;
+  color: #fff;
+  text-align: center;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin: 20px;
+
+  &:hover {
+    background-color: #b33c2f;
+  }
+}
