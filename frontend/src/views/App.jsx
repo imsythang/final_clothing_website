@@ -20,10 +20,6 @@ import SizeGuild from './user/sizeGuild';
 import WriteReview from "./user/writeReview";
 // import Orders from './admin/Orders';
 function App() {
-  const isLoggedIn = window.localStorage.getItem("LoggedIn");
-  const role = window.localStorage.getItem("role");
-
-
   return (
     <Router>
       <div className="app">
@@ -40,7 +36,7 @@ function App() {
           <Route path="/signin" element={<SignInFormApp />} />
           <Route path="/signup" element={<SignUpFormApp />} />
           <Route path="/forgotpassword" element={<ForgotPasswordFormApp />} />
-          <Route path="/product" element={<Product />} />
+          <Route path="/product/:productID" element={<Product />} />
           <Route path='/cart' element={<ShoppingCart />} />
 
           <Route path="/writereview" element={<WriteReview />} />
