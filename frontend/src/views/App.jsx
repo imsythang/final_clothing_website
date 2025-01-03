@@ -8,6 +8,7 @@ import ProtectedRoute from '../components/protectedRoute';
 import SignInFormApp from '../components/signIn/signInForm';
 import SignUpFormApp from '../components/signUp/signUpForm';
 import Warehouse from '../components/warehouse/warehouse';
+import Home from './admin/homepage';
 import Profile from './admin/infoCustomer';
 import MenProduct from './user/Menpro';
 import NProduct from './user/Nproduct';
@@ -17,8 +18,6 @@ import Product from "./user/productDetail";
 import ShoppingCart from './user/shoppingCart';
 import SizeGuild from './user/sizeGuild';
 import WriteReview from "./user/writeReview";
-import Home from './admin/homepage';
-//import Dashboard from './admin/overall';
 function App() {
   const isLoggedIn = window.localStorage.getItem("LoggedIn");
   const role = window.localStorage.getItem("role");
@@ -55,7 +54,6 @@ function App() {
 
           {/* admin */}
           {/* <Route path='/customer' element= {<Customers />} /> */}
-          {/* <Route path='/dasboard' element = {<Dashboard />} /> */}
           <Route path='/admin/homepage' element = {<Home />} />
           <Route path="/categorypage" element={<CategoryPage />} />
           <Route path="/productpage" element={<ProductPage />} />
