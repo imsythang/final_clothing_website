@@ -246,8 +246,8 @@ function Product() {
 
                         </div>
 
-                        <form onSubmit={handleAddToCart}>
-                            <div className={clsx(style1.col, style1['l-4'])}>
+                        <div className={clsx(style1.col, style1['l-4'])}>
+                            <form onSubmit={handleAddToCart}>
                                 <h1 className={style.product__heading}>{product.name}</h1>
                                 <h1 className={style.product__price}> {product?.priceSelling
                                     ? product.priceSelling.toLocaleString('vi-VN') + ' VND'
@@ -343,8 +343,8 @@ function Product() {
                                 </div>
                                 <p className={style.product__status}>In Stock</p>
                                 <button className={style.btn__submit} type="submit">ADD TO CART</button>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
                 </div>
 

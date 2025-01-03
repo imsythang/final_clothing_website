@@ -41,7 +41,7 @@ function WomenProduct() {
 
         fetchProducts();
     }, []);
-    const navigate = useNavigate()
+
     const Product = ({ product }) => {
         const { imageUrl, name, priceSelling, ratingCount, ratingAverage,productID } = product;
         return (
