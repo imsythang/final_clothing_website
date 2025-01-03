@@ -8,15 +8,15 @@ import ProtectedRoute from '../components/protectedRoute';
 import SignInFormApp from '../components/signIn/signInForm';
 import SignUpFormApp from '../components/signUp/signUpForm';
 import Warehouse from '../components/warehouse/warehouse';
+import Profile from './admin/infoCustomer';
 import MenProduct from './user/Menpro';
 import NProduct from './user/Nproduct';
 import WomenProduct from './user/Womenpro';
 import HomePage from './user/homePage';
-import Profile from './infoCustomer';
-import Product from "./productDetail";
+import Product from "./user/productDetail";
 import ShoppingCart from './user/shoppingCart';
-import WriteReview from "./writeReview";
 import SizeGuild from './user/sizeGuild';
+import WriteReview from "./user/writeReview";
 function App() {
   const isLoggedIn = window.localStorage.getItem("LoggedIn");
   const role = window.localStorage.getItem("role");
@@ -32,7 +32,7 @@ function App() {
           <Route path="/newArrival" element={<NProduct />} />
           <Route path="/men" element={<MenProduct />} />
           <Route path="/women" element={<WomenProduct />} />
-          <Route path="/help" element= {<SizeGuild />} />
+          <Route path="/help" element={<SizeGuild />} />
 
           <Route path="/signin" element={<SignInFormApp />} />
           <Route path="/signup" element={<SignUpFormApp />} />
@@ -49,6 +49,7 @@ function App() {
 
           </Route>
           {/* admin */}
+          {/* <Route path='/customer' element= {<Customers />} /> */}
           <Route path="/categorypage" element={<CategoryPage />} />
           <Route path="/productpage" element={<ProductPage />} />
           <Route path="/warehouse" element={<Warehouse />} />

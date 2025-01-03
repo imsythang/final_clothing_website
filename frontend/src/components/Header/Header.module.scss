@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #fff4e6;
+    padding: 10px 20px;
+    height: 59pt;
+    position: absolute;
+    width: 100%;
+    z-index: -1;
+
+
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 26px;
+    color: #60443A;
+    cursor: pointer;
+    position: absolute;
+    right: 1%;
+    top: 3.5%;
+    z-index: 1000;
+}
