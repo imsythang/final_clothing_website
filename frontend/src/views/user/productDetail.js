@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { useState } from 'react';
-import { Link } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
 
 import Footer from '../../components/footer/footer';
 import ImageSlider from '../../components/product/imageSlider';
@@ -16,14 +16,34 @@ import image1 from '../../img/product_image1.avif';
 import image2 from '../../img/product_image2.avif';
 import image3 from '../../img/product_image3.avif';
 import image4 from '../../img/product_image4.avif';
+import axios from "axios";
 
 
 function Product() {
     const [quantity, setQuantity] = useState(1);
+    const [product, setProduct] = useState([]); // State để lưu trữ thông tin sản phẩm
+
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const productId = queryParams.get('productID'); // Lấy giá trị từ tham số 'customerId'
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/global/product/detail/${productId}`);
+                console.log(response.data);
+                setProduct(response.data);
+            } catch (error) {
+                console.error("Lỗi khi gọi API:", error);
+            }
+        };
+        fetchData();
+    }, [productId]);
+
 
     const handleChange = (e) => {
         setQuantity(e.target.value);
-    }
+    };
 
     return (
         <>
@@ -39,6 +59,9 @@ function Product() {
                                 <div className={clsx(style1.col, style1['l-8'])}>
                                     {/* <img src={image1} alt='Product Image' className={style['image-show']} /> */}
                                     <ImageSlider>
+                                        {/* {product.images.map((img, index) => (
+                                            <img key={index} src={img} alt={`Product image ${index + 1}`} className={style['image-show']} />
+                                        ))} */}
                                         <img src={image1} alt="anh1" className={style['image-show']} />
                                         <img src={image2} alt="anh1" className={style['image-show']} />
                                         <img src={image3} alt="anh1" className={style['image-show']} />
@@ -171,7 +194,7 @@ function Product() {
 
 
                         <div className={clsx(style1.col, style1['l-4'])}>
-                            <h1 className={style.product__heading}>AIRism Cotton Ribbed Polo Shirt</h1>
+                            <h1 className={style.product__heading}>hahahahahah</h1>
                             <h1 className={style.product__price}>203.000 VND</h1>
                             <div className={style.product__reviews}>
                                 <span>

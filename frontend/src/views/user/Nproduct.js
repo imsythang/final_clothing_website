@@ -7,6 +7,7 @@ import Filter from "../../components/Filter2/filter2";
 import BasicBreadcrumbs from "../../components/breadcrumb/breadcrumb";
 import Footer from '../../components/footer/footer';
 import styles from "../../styles/Nproduct.module.scss";
+import { Link } from 'react-router-dom';
 
 function NProduct() {
     const breadcrumbLinks = [
@@ -47,9 +48,11 @@ function NProduct() {
         return (
             <div className={`${styles.product} product product_${product.productID}`}>
                 {/* Dùng Link để chuyển tới trang chi tiết sản phẩm */}
-                <Link to={`/product/${productID}`}>
+
+                <Link to={ `/product?productID=${productID}`}>
                     <img className={`image_${product.productID}`} src={imageUrl} alt={name} />
                 </Link>
+
 
                 <div style={{ padding: "0 0 15px 10px" }}>
                     <p className={styles.title}>{name}</p>
