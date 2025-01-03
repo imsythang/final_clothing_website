@@ -8,7 +8,6 @@ function Home() {
     //const { shop_id } = useParams();
     return (
         <>
-            <NavbarAdmin />
             <div className={styles.dashboard}>
                 <section className={styles.dashboard_header}>
                     <h2>KẾT QUẢ KINH DOANH TRONG NGÀY</h2>
