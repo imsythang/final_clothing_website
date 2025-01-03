@@ -26,9 +26,9 @@ function App() {
   return (
     <Router>
       <div className="app">
-        {/* <Navbar /> */}
+        <Navbar />
         <Routes>
-          
+
           {/* unauthorized route */}
           <Route path='/' element={<HomePage />} />
           <Route path="/newArrival" element={<NProduct />} />
@@ -54,7 +54,7 @@ function App() {
 
           {/* admin */}
           {/* <Route path='/customer' element= {<Customers />} /> */}
-          <Route path='/admin/homepage' element = {<Home />} />
+          <Route path='/admin/homepage' element={<Home />} />
           <Route path="/categorypage" element={<CategoryPage />} />
           <Route path="/productpage" element={<ProductPage />} />
           <Route path="/warehouse" element={<Warehouse />} />
