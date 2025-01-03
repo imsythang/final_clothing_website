@@ -1,5 +1,4 @@
-
-ul.navbar{
+ul.navbarall {
     box-sizing: border-box;
     list-style-type: none;
     margin: 0;
@@ -15,7 +14,7 @@ ul.navbar{
     justify-content: space-between;
 
     li a,
-    li .login{
+    li .login {
         display: block;
         color: #000;
         text-align: center;
@@ -28,43 +27,43 @@ ul.navbar{
         margin-right: 34px;
         padding: 7px;
     }
-    
+
     li a:hover {
         text-decoration: underline;
     }
-    
+
     .home {
         font-family: Island Moments;
         font-size: 30px;
         color: #000;
     }
-    
+
     .login {
         border: 2px solid #000;
         border-radius: 5px;
         margin-right: 60px;
         text-decoration: none !important;
-    
-        &:active{
+
+        &:active {
             opacity: 0.8;
         }
     }
-    
+
     .login:hover {
         background-color: #ccc;
     }
-    
+
     .home__icon {
         margin-right: 15px;
     }
-    
+
     .user__icon {
         display: block;
         font-size: 30px;
         cursor: pointer;
     }
-    
-    .user__icon:hover .show__option{
+
+    .user__icon:hover .show__option {
         display: block;
         transform-origin: calc(100% - 40px) 0;
     }
@@ -82,8 +81,8 @@ ul.navbar{
         font-size: 15px;
 
         cursor: default;
-        will-change: notifyGrowth,opacity;
-        animation: notifyGrowth ease-out .15s;
+        will-change: notifyGrowth, opacity;
+        animation: notifyGrowth ease-out 0.15s;
         z-index: 99;
 
         &::before {
@@ -97,8 +96,7 @@ ul.navbar{
             background-color: none;
         }
 
-        
-        &::after{
+        &::after {
             content: "";
             display: block;
             border-width: 11.2px 16px;
@@ -108,13 +106,12 @@ ul.navbar{
             top: -29%;
             right: 4px;
         }
-        
+
         .logout:hover {
             opacity: 0.8;
             background-color: #ccc;
         }
     }
-
 
     .logout {
         cursor: pointer;
@@ -127,14 +124,11 @@ ul.navbar{
         font-size: 16px;
     }
 
-}
+    &.guest {
+        background-color: #fff;
+    }
 
-
-ul.guest {
-    background-color: #fff;
-}
-
-
-ul.logged-in {
-    background-color: #CFB38C;
+    &.logged-in {
+        background-color: #cfb38c;
+    }
 }
