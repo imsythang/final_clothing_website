@@ -44,14 +44,18 @@ function Body() {
             <img src={image2} className={style.side_img}></img>
 
             <div className={style.box_who_are_we} style={{ top: 750, left: 65 }}>What We Offer</div>
+            <Link to="/women" >
             <div className={style.gender_box}>
                 <img src={image3} alt="women" style={{ position: "absolute", width: 358, height: 534 }}></img>
                 <div className={style.gender_text}>Clothes for her</div>
             </div>
+            </Link>
+            <Link to="/men" >
             <div className={style.gender_box} style={{ left: 1000 }}>
                 <img src={image4} alt="men" style={{ position: "absolute", width: 358, height: 534 }}></img>
                 <div className={style.gender_text} style={{ left: -200, top: 454 }}>Clothes for him</div>
             </div>
+            </Link>
         </div>
     );
 }
