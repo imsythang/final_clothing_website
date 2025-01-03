@@ -7,7 +7,7 @@ import Filter from "../../components/Filter2/filter2";
 import BasicBreadcrumbs from "../../components/breadcrumb/breadcrumb";
 import Footer from '../../components/footer/footer';
 import styles from "../../styles/Nproduct.module.scss";
-
+import { useNavigate } from 'react-router-dom';
 
 function WomenProduct() {
     const breadcrumbLinks = [
@@ -40,11 +40,11 @@ function WomenProduct() {
 
         fetchProducts();
     }, []);
-
+    const navigate = useNavigate()
     const Product = ({ product }) => {
         const { imageUrl, name, priceSelling, ratingCount, ratingAverage } = product;
         return (
-            <div className={`${styles.product} product product_${product.productID}`}>
+            <div className={`${styles.product} product product_${product.productID}`} onClick={() => navigate(`/product/${product.productID}`)}>
                 <img className={`image_${product.productID}`} src={imageUrl} alt={name} />
 
                 <div style={{ padding: "0 0 15px 10px" }}>
