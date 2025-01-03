@@ -18,6 +18,21 @@
 
 }
 
+.iconstar {
+    display: flex;
+    margin-top: 10px;
+    font-size: 35px;
+    color: #ffc700;
+
+    span {
+        display: flex;
+    }
+}
+
+.Product__id {
+    text-align: center;
+}
+
 .flex {
     display: flex;
 }
