@@ -3,27 +3,43 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from "axios";
 import { useEffect, useState } from "react";
 import styles from "../../styles/adminHomePage.module.scss";
+import { Bar } from 'react-chartjs-2';
+import {
+    Chart as ChartJS,
+    BarElement,
+    CategoryScale, // This is the "category" scale
+    LinearScale,
+    Title,
+    Tooltip,
+    Legend
+} from 'chart.js';
+
+// Register required components
+ChartJS.register(
+    BarElement,
+    CategoryScale,
+    LinearScale,
+    Title,
+    Tooltip,
+    Legend
+);
 
 function Home() {
-    const [data, setData] = useState({
-        total: 0,      // Default value for total
-        customers: 0,    // Default value for customers
-        orders: 0        // Default value for orders
-    });
+
+    const [data, setData] = useState([]);
     const [loading, setLoading] = useState(true); // Loading state
     const token = window.localStorage.getItem("token");
 
     useEffect(() => {
         async function fetchUserData() {
             try {
-                const response = await axios.get('http://localhost:8080/admin/totalSalesToday', {
+                const response = await axios.get('http://localhost:8080/admin/doanhthu', {
                     headers: {
                         'Authorization': `Bearer ${token}` // Add token to header
                     }
                 });
+                console.log(response.data);
 
-                // Assuming the API returns data in the format:
-                // { total: <number>, customers: <number>, orders: <number> }
                 setData(response.data);
                 setLoading(false); // Data has been successfully fetched
             } catch (error) {
@@ -36,7 +52,6 @@ function Home() {
     }, [token]);
 
     if (loading) {
-        // Optional: Display a loading spinner or animation (e.g., "Looxi gif")
         return (
             <div className={styles.loading}>
                 <p>Loading...</p>
@@ -50,7 +65,7 @@ function Home() {
                 <h2>KẾT QUẢ KINH DOANH TRONG NGÀY</h2>
                 <hr></hr>
                 <div className={styles.dashboard_stats}>
-                    {/* total */}
+                    {/* Total */}
                     <div className={styles.stat_item}>
                         <span className={styles.icon}>
                             <FontAwesomeIcon icon={faSackDollar} />
@@ -58,7 +73,6 @@ function Home() {
                         <div>
                             <p>Doanh thu</p>
                             <h3>{data.total ? data.total.toLocaleString() : "0"} VND</h3>
-
                         </div>
                     </div>
 
@@ -93,7 +107,32 @@ function Home() {
             <section className={styles.dashboard_overview}>
                 <h3>Tổng quan báo cáo</h3>
                 <div className={styles.chart}>
-                    <p>Biểu đồ báo cáo</p>
+                    <Bar
+                        data={{
+                            labels: data.map((item) => item.day), // Sample labels
+                            datasets: [
+                                {
+                                    label: "Doanh thu (VND)",
+                                    data: data.map((item) => item.total), // Sample data
+                                    backgroundColor: "rgba(75,192,192,0.4)",
+                                    borderColor: "rgba(75,192,192,1)",
+                                    borderWidth: 1
+                                }
+                            ]
+                        }}
+                        options={{
+                            responsive: true,
+                            plugins: {
+                                legend: {
+                                    position: 'top'
+                                },
+                                title: {
+                                    display: true,
+                                    text: 'Doanh Thu Biểu Đồ'
+                                }
+                            }
+                        }}
+                    />
                 </div>
             </section>
 
