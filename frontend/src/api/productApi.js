@@ -8,18 +8,14 @@ const productApi = {
             }
         })
     },
-    getSupplier() {
-        const url = '/api/product/supplier';
-        return axiosClient.get(url)
+    postQuantity(data, token) {
+        const url = '/admin/addQuantityProduct';
+        return axiosClient.post(url, data, {
+            headers: {
+                'Authorization': `Bearer ${token}` // Thêm token vào header
+            }
+        })
     },
-    getInventory() {
-        const url = '/api/product/inventory';
-        return axiosClient.get(url)
-    },
-    getProduct(element) {
-        const url = `/api/product/${element}`;
-        return axiosClient.get(url)
-    }
 }
 
 export default productApi;

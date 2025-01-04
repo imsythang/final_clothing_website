@@ -19,14 +19,14 @@ function NavbarAdmin() {
 
 
         // Redirect to home or login page
-        navigate("/"); // Redirect to the homepage or any other page
+        navigate('/'); // Redirect to the homepage or any other page
     };
 
     return (
         <>
             <Header />
             <div className={styles.navbar}>
-                <div className={styles.home} onClick={() => navigate("/admin/homepage")}>
+                <div className={styles.home} onClick={() => navigate(`/admin/homepage`)}>
                     <FontAwesomeIcon icon={faHouse} />
                     <a> Nét</a>
                 </div>
@@ -71,8 +71,7 @@ function NavbarAdmin() {
                 </li>
             </div>
         </>
-
     );
-};
 
+};
 export default NavbarAdmin;
