@@ -9,6 +9,8 @@
     font-family: "Josefin Sans";
     height: 1850px;
     .home {
+        cursor: pointer;
+        user-select: none;
         padding: 20px;
         font-weight: 500;
         font-style: italic;

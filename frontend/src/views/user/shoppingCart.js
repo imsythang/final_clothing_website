@@ -18,15 +18,10 @@ function ShoppingCart() {
     const token = window.localStorage.getItem("token");
 
 
-
-
-
-
     // Tải dữ liệu từ API
     useEffect(() => {
         async function fetchCart() {
             try {
-                console.log(token);
                 const response = await axios.get('http://localhost:8080/user/orders/myCart', {
                     headers: {
                         'Authorization': `Bearer ${token}` // Thêm token vào header
@@ -41,19 +36,38 @@ function ShoppingCart() {
         fetchCart();
     }, []);
 
+    async function recall() {
+        try {
+            const response = await axios.get('http://localhost:8080/user/orders/myCart', {
+                headers: {
+                    'Authorization': `Bearer ${token}` // Thêm token vào header
+                }
+            }); // Sử dụng Axios để gọi API
+            setList(response.data);
+            setLoading(false);
+        } catch (error) {
+            setList([]);
+        }
+    }
+
+    const tongtien = () => {
+        const total = list.reduce((acc, item) => acc + item.price_selling, 0);
+        return total;
+    }
+
+    console.log(tongtien());
+
     console.log("danh sách ", list);
 
     async function handleRemove(productID) {
         try {
-            const response = await axios.delete(`http://localhost:8080/user/orders/itemcart/${productID}`,{
+            const response = await axios.delete(`http://localhost:8080/user/orders/itemcart/${productID}`, {
                 headers: {
                     'Authorization': `Bearer ${token}` // Thêm token vào header
                 }
             });
-            if (response.status === 200) {
-                alert("Xóa sản phẩm thành công!");
-                setList(list.filter(item => item.productID !== productID));
-            }
+            recall();
+            alert("Xóa sản phẩm thành công!");
         } catch (error) {
             console.error("Lỗi khi xóa sản phẩm:", error);
             alert("Lỗi khi xóa sản phẩm!");
@@ -63,17 +77,24 @@ function ShoppingCart() {
 
     async function handleCheckout() {
         try {
-            const response = await axios.put('http://localhost:8080/user/orders/checkout',{
-                headers: {
-                    'Authorization': `Bearer ${token}` // Thêm token vào header
+            console.log("qua day roi", token);
+            const response = await axios.put(
+                'http://localhost:8080/user/orders/checkout',
+                {}, // Body (nếu không có, để rỗng)
+                {
+                    headers: {
+                        'Authorization': `Bearer ${token}`, // Thêm token vào header
+                        'Content-Type': 'application/json',
+                    }
                 }
-            });
+            );
+
             if (response.status === 200) {
                 alert(response.data); // Hiển thị thông báo từ server
                 setList([]); // Làm trống giỏ hàng sau khi thanh toán
             }
         } catch (error) {
-            console.error("Lỗi khi thanh toán:", error);
+            console.error('Lỗi khi thanh toán:', error.response?.data || error.message);
             alert("Lỗi khi thanh toán!");
         }
     }
@@ -84,7 +105,7 @@ function ShoppingCart() {
             <BasicBreadcrumbs links={breadcrumbLinks} />
             <h2 className={styles.title}>Giỏ hàng </h2>
             <CartItem items={list} onRemove={handleRemove} />
-            {list.length > 0 && <OrderSummary item={list[0]} onClick={handleCheckout} />}
+            {list.length > 0 && <OrderSummary item={tongtien} onClick={handleCheckout} count={list.length} />}
             <div style={{ marginTop: "700px" }}>
                 <Footer />
             </div>

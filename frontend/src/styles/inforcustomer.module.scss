@@ -1,5 +1,5 @@
 .title {
-    width: 418px;
+    width: 500px;
     height: 65px;
     padding-left: 66px;
     padding-top: 120px;
@@ -23,7 +23,7 @@
     width: 301px;
     height: 115px;
     left: 65px;
-    top: 23px;
+    top: 100px;
     background: #FFF2E3;
 
     .takeNoteTitle {
@@ -55,12 +55,12 @@
 
 .info {
     position: relative;
-    display: flex;
+    display: flex
+;
     width: 703px;
-    height: 379px;
-    left: 449px;
-    top: -92px;
-
+    height: 440px;
+    left: 500px;
+    top: -15px;
     background: #FFF2E3;
 
     h2 {
@@ -106,4 +106,34 @@
             }
         }
     }
+}
+
+.address {
+    position: absolute;
+    width: 75px;
+    height: 11px;
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 130%;
+    top: 330px;
+    left: 175px;
+
+    input {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 380px;
+        height: 43px;
+        border: 2px solid #60443A;
+        padding: 12px 20px;
+        box-sizing: border-box;
+        font-family: 'Josefin Sans';
+        font-style: normal;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 130%;
+        background-color: #FFF2E3;
+
+            }
 }
