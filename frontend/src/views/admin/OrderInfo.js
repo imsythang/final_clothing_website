@@ -1,86 +1,75 @@
-import Navbar from "../../components/NavigationBar/Navbar";
 import styles from '../../styles/orderInfo.module.scss';
-import { useNavigate } from "react-router-dom";
-import { useParams } from "react-router-dom";
-
+import { useNavigate, useParams } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import orderApi from '../../api/orderApi';
+import React from 'react';
 function OrderInfo() {
     const { order_id } = useParams();
-    const orderDetails = {
-        12345: {
-            customer: "Nguyễn Văn A",
-            phone: "0325648913",
-            email: "nguyenvanA12@gmail.com",
-            address: "42/3 đường TL48, phường Thạnh Lộc, quận 12, TPHCM",
-            items: [
-                {
-                    name: "AIRism Cotton Ribbed Polo Shirt",
-                    size: "L",
-                    color: "White",
-                    sku: "abc",
-                    price: "203.000 VND",
-                    quantity: 1,
-                    total: "203.000 VND",
-                },
-            ],
-            notes: "Đơn giao về thì gọi e ra lấy nha shop",
-            paymentStatus: "Đã thanh toán"
+    const [order, setOrderInfo] = useState([])
+    const token = window.localStorage.getItem("token");
+    useEffect(() => {
+        const fetchOrdInfo = async () => {
+            const emp = await orderApi.getSpecificOrder(order_id, token);
+            setOrderInfo(emp)
         }
-
+        fetchOrdInfo();
+    }, [])
+    let navigate = useNavigate();
+    const formatCurrency = (value) => {
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+            minimumFractionDigits: 0,
+        }).format(value);
     };
-    const nagative = useNavigate();
-    const order = orderDetails[order_id] || {};
+
     return (
         <>
-            <div className={styles.title}>Đơn hàng {order.order_id}</div>
-            <div className={styles.btn} onClick={() => nagative('/neworder')}>Nhận đơn</div>
-            <button className={styles.delete_button}>In đơn hàng</button>
+            <div className={styles.title}>Đơn hàng {order_id}</div>
+            <div className={styles.btn} onClick={() => navigate('/listorder')}>Quay lại</div>
             <form>
                 <div className={styles.content}>
                     <div className={styles.leftitem}>
-                        <h4>Chi tiết đơn hàng</h4>
-                    </div>
-                    <div className={styles.rightitem}>
-                        <h6>Đã nhận</h6>
+                        <h2>CHI TIẾT ĐƠN HÀNG</h2>
                     </div>
                     <hr />
                     <div className={styles.detail}>
-                        <h3>{order.items[0].name}</h3>
-                        <div className={styles.leftdetail}>
-                            <label>{order.items[0].size} / {order.items[0].color} : {order.items[0].price} x {order.items[0].quantity}</label>
-                            <label>SKU: {order.items[0].sku}</label>
-                        </div>
-                        <div className={styles.centerdetail}>
-                            <label>Giá : {order.items[0].price}</label>
-                            <label>Tiếp thị: -0 VND</label>
-                            <label>Tổng cộng: {order.items[0].total}</label>
-                        </div>
+                        {order?.products?.length > 0 ? (
+                            (order.products).map((data) => {
+                                return (
+                                    <>
+                                        <h3>{data.name}</h3>
+                                        <div className={styles.leftdetail}>
+                                            <img src={data.image}></img>
+                                        </div>
+                                        <div className={styles.rightdetail}>
+                                            <label>{data.brand} / {data.material}  </label>
+                                            <label>Số lượng: {data.quantity} x Đơn giá: {formatCurrency(data.price_selling)}</label>
+                                            <label style={{ fontWeight: 'bold' }}> Tổng tiền: {formatCurrency(data.total_price)}</label>
+                                        </div>
+                                        <hr ></hr >
+                                    </>
+                                )
+                            })) : (
+                            <p>No products found.</p> // Fallback UI for undefined or empty products
+                        )}
 
-                        <div className={styles.statusOrd}>
-                            <h7>Phương thức thanh toán: {order.paymentStatus}</h7>
-                        </div>
                     </div>
-
-                    <div className={styles.content2}>
-                        <h3>Ghi chú</h3>
-                        <p>{order.notes}</p>
-                    </div>
-
                     <div className={styles.content3}>
-                        <h3>Khách hàng: </h3>
-                        <p>{order.customer}</p>
-                        <p>1 đơn hàng</p>
+                        <h3>Khách hàng </h3>
+                        <p>{order.full_name}</p>
                         <hr />
 
-                        <h4>Liên hệ</h4>
-                        <p>{order.phone}</p>
+                        <h3>Liên hệ</h3>
+                        <p>{order.phone_number}</p>
                         <p>{order.email}</p>
                         <hr />
 
-                        <h4>Địa chỉ</h4>
-                        <p>{order.address}</p>
+                        <h3>Địa chỉ</h3>
+                        <p>{order.shipping_address}</p>
                     </div>
                 </div>
-            </form>
+            </form >
         </>
     );
 }

@@ -26,11 +26,23 @@ function NavbarAdmin() {
         <>
             <Header />
             <div className={styles.navbar}>
+<<<<<<< HEAD
                 <div className={styles.home} onClick={() => navigate(`/admin/homepage`)}>
                     <FontAwesomeIcon icon={faHouse} />
                     <a> Nét</a>
                 </div>
                 <div className={styles.menu_item1} onClick={() => navigate(`/admin/homepage`)}>
+=======
+                <div className={styles.home} onClick={() => navigate("/admin/homepage")}>
+                    <FontAwesomeIcon icon={faHouse} />
+                    <a> Nét</a>
+                </div>
+<<<<<<< HEAD
+                <div className={styles.menu_item1} onClick={() => navigate(`/admin/homepage`)}>
+=======
+                <div className={styles.menu_item1} onClick={() => navigate("/admin/homepage")}>
+>>>>>>> fd3d681db9893f87bae16ef542f1de70a8f9d7df
+>>>>>>> 58e8e501d925131d4d144dd07298f7b12a536b38
                     <FontAwesomeIcon icon={faHouseChimneyWindow} />
                     <a> Tổng quan</a>
                 </div>
@@ -45,9 +57,6 @@ function NavbarAdmin() {
                     {isOpen && (
                         <ul className={styles.submenu}>
                             <li onClick={() => navigate(`/listorder`)}>Danh sách đơn hàng</li>
-                            <li onClick={() => navigate(`/neworder`)}>Đơn hàng mới</li>
-                            <li onClick={() => navigate(`/defectiveorder`)}>Đơn hàng lỗi</li>
-                            <li onClick={() => navigate(`/issueorder`)}>Đơn nhập hàng</li>
                         </ul>
                     )}
                 </div>
