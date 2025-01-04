@@ -30,7 +30,7 @@ function App() {
 
           {/* unauthorized route */}
           <Route path='/' element={<HomePage />} />
-          
+
           <Route path="/newArrival" element={<NProduct />} />
           <Route path="/men" element={<MenProduct />} />
           <Route path="/women" element={<WomenProduct />} />
@@ -41,11 +41,11 @@ function App() {
           <Route path="/forgotpassword" element={<ForgotPasswordFormApp />} />
           <Route path="/product" element={<Product />} />
           <Route path='/cart' element={<ShoppingCart />} />
-          <Route path='/myInfo' element= {<MyInfo />} />
+          <Route path='/myInfo' element={<MyInfo />} />
 
           <Route path="/writereview" element={<WriteReview />} />
 
-          <Route path="/history" element= {<History />} />
+          <Route path="/history" element={<History />} />
 
           {/* protected route */}
           <Route element={<ProtectedRoute />}>

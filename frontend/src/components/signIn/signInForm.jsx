@@ -27,16 +27,16 @@ function LoginForm() {
                 const token = response.data.result.token;
                 alert("đăng nhập thành công!");
                 const role = Role(token);
-                window.localStorage.setItem("token",token);
+                window.localStorage.setItem("token", token);
                 window.localStorage.setItem("role", role);
                 window.localStorage.setItem("LoggedIn", true);
 
-                console.log("đây là role: " , role);
-                if(role === "ADMIN"){
+                console.log("đây là role: ", role);
+                if (role === "ADMIN") {
                     navigate("/productpage");
                 }
                 else {
-                    navigate("/"); 
+                    navigate("/");
                 }
             }
         } catch (error) {
