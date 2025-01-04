@@ -26,69 +26,64 @@ function NavbarAdmin() {
         <>
             <Header />
             <div className={styles.navbar}>
-<<<<<<< HEAD
                 <div className={styles.home} onClick={() => navigate(`/admin/homepage`)}>
                     <FontAwesomeIcon icon={faHouse} />
                     <a> Nét</a>
                 </div>
                 <div className={styles.menu_item1} onClick={() => navigate(`/admin/homepage`)}>
-=======
-                <div className={styles.home} onClick={() => navigate("/admin/homepage")}>
-                    <FontAwesomeIcon icon={faHouse} />
-                    <a> Nét</a>
-                </div>
-<<<<<<< HEAD
-                <div className={styles.menu_item1} onClick={() => navigate(`/admin/homepage`)}>
-=======
-                <div className={styles.menu_item1} onClick={() => navigate("/admin/homepage")}>
->>>>>>> fd3d681db9893f87bae16ef542f1de70a8f9d7df
->>>>>>> 58e8e501d925131d4d144dd07298f7b12a536b38
-                    <FontAwesomeIcon icon={faHouseChimneyWindow} />
-                    <a> Tổng quan</a>
-                </div>
-                <div className={styles.menu_item2} onClick={() => setIsOpen(!isOpen)}>
-                    <div className={styles.item2}>
-                        <span><FontAwesomeIcon icon={faReceipt} />
-                            <a>Đơn hàng </a>
-                        </span>
-                        <span className={styles.updown}>{isOpen ? <FontAwesomeIcon icon={faChevronDown} /> :
-                            <FontAwesomeIcon icon={faChevronRight} />}</span>
+                    <div className={styles.home} onClick={() => navigate("/admin/homepage")}>
+                        <FontAwesomeIcon icon={faHouse} />
+                        <a> Nét</a>
                     </div>
-                    {isOpen && (
-                        <ul className={styles.submenu}>
-                            <li onClick={() => navigate(`/listorder`)}>Danh sách đơn hàng</li>
-                        </ul>
-                    )}
-                </div>
-                <div className={styles.menu_item3} onClick={() => setIsOpen1(!isOpen1)}>
-                    <div className={styles.item3}>
-                        <span><FontAwesomeIcon icon={faShopify} />
-                            <a>Sản phẩm </a>
-                        </span>
-                        <span className={styles.updown}>{isOpen1 ? <FontAwesomeIcon icon={faChevronDown} /> :
-                            <FontAwesomeIcon icon={faChevronRight} />}</span>
+                    <div className={styles.menu_item1} onClick={() => navigate(`/admin/homepage`)}>
+                        <div className={styles.menu_item1} onClick={() => navigate("/admin/homepage")}>
+                            <FontAwesomeIcon icon={faHouseChimneyWindow} />
+                            <a> Tổng quan</a>
+                        </div>
+                        <div className={styles.menu_item2} onClick={() => setIsOpen(!isOpen)}>
+                            <div className={styles.item2}>
+                                <span><FontAwesomeIcon icon={faReceipt} />
+                                    <a>Đơn hàng </a>
+                                </span>
+                                <span className={styles.updown}>{isOpen ? <FontAwesomeIcon icon={faChevronDown} /> :
+                                    <FontAwesomeIcon icon={faChevronRight} />}</span>
+                            </div>
+                            {isOpen && (
+                                <ul className={styles.submenu}>
+                                    <li onClick={() => navigate(`/listorder`)}>Danh sách đơn hàng</li>
+                                </ul>
+                            )}
+                        </div>
+                        <div className={styles.menu_item3} onClick={() => setIsOpen1(!isOpen1)}>
+                            <div className={styles.item3}>
+                                <span><FontAwesomeIcon icon={faShopify} />
+                                    <a>Sản phẩm </a>
+                                </span>
+                                <span className={styles.updown}>{isOpen1 ? <FontAwesomeIcon icon={faChevronDown} /> :
+                                    <FontAwesomeIcon icon={faChevronRight} />}</span>
+                            </div>
+                            {isOpen1 && (
+                                <ul className={styles.submenu}>
+                                    <li onClick={() => navigate(`/listproduct`)}>Danh sách sản phẩm</li>
+                                    <li onClick={() => navigate(`/supplier`)}>Nhà cung cấp sản phẩm</li>
+                                    <li onClick={() => navigate(`/inventory`)}>Quản lý kho</li>
+                                </ul>
+                            )}
+                        </div>
+                        <li className={styles.menu_item4} onClick={() => navigate(`/listcus`)}>
+                            Khách hàng
+                        </li>
+                        <li className={styles.menu_item5} onClick={() => navigate(`/listemp`)}>
+                            Khuyến mãi
+                        </li>
+                        <li className={styles.menu_item6} onClick={handleLogout}>
+                            Đăng xuất
+                        </li>
                     </div>
-                    {isOpen1 && (
-                        <ul className={styles.submenu}>
-                            <li onClick={() => navigate(`/listproduct`)}>Danh sách sản phẩm</li>
-                            <li onClick={() => navigate(`/supplier`)}>Nhà cung cấp sản phẩm</li>
-                            <li onClick={() => navigate(`/inventory`)}>Quản lý kho</li>
-                        </ul>
-                    )}
                 </div>
-                <li className={styles.menu_item4} onClick={() => navigate(`/listcus`)}>
-                    Khách hàng
-                </li>
-                <li className={styles.menu_item5} onClick={() => navigate(`/listemp`)}>
-                    Khuyến mãi
-                </li>
-                <li className={styles.menu_item6} onClick={handleLogout}>
-                    Đăng xuất
-                </li>
             </div>
         </>
-
     );
-};
 
+};
 export default NavbarAdmin;
