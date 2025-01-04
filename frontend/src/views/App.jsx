@@ -10,6 +10,7 @@ import SignUpFormApp from '../components/signUp/signUpForm';
 import Warehouse from '../components/warehouse/warehouse';
 import Home from './admin/homepage';
 import Profile from './admin/infoCustomer';
+import History from './user/History';
 import MenProduct from './user/Menpro';
 import NProduct from './user/Nproduct';
 import WomenProduct from './user/Womenpro';
@@ -18,6 +19,7 @@ import Product from "./user/productDetail";
 import ShoppingCart from './user/shoppingCart';
 import SizeGuild from './user/sizeGuild';
 import WriteReview from "./user/writeReview";
+import MyInfo from './user/MyInfo';
 // import Orders from './admin/Orders';
 function App() {
   return (
@@ -39,8 +41,11 @@ function App() {
           <Route path="/forgotpassword" element={<ForgotPasswordFormApp />} />
           <Route path="/product" element={<Product />} />
           <Route path='/cart' element={<ShoppingCart />} />
+          <Route path='/myInfo' element= {<MyInfo />} />
 
           <Route path="/writereview" element={<WriteReview />} />
+
+          <Route path="/history" element= {<History />} />
 
           {/* protected route */}
           <Route element={<ProtectedRoute />}>
@@ -52,6 +57,8 @@ function App() {
 
           {/* admin */}
           {/* <Route path='/customer' element= {<Customers />} /> */}
+
+          {/* <Route path='/admin/orderInfo' element = {<OrderInfo />} /> */}
           <Route path='/admin/homepage' element={<Home />} />
           <Route path="/categorypage" element={<CategoryPage />} />
           <Route path="/productpage" element={<ProductPage />} />

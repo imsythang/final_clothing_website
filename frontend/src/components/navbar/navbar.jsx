@@ -1,12 +1,9 @@
-import './navbar.scss';
+import { faCartPlus, faCircleInfo, faClock, faHouse, faMagnifyingGlass, faUser } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
-import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
-import { faHouse, faUser } from '@fortawesome/free-solid-svg-icons';
-import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
-import { Link, useNavigate } from 'react-router-dom';
 import clsx from 'clsx';
+import { Link, useNavigate } from 'react-router-dom';
 import NavbarAdmin from '../NavigationBar/Navbar';
+import './navbar.scss';
 
 function Navbar() {
     const isLoggedIn = window.localStorage.getItem("LoggedIn");
@@ -109,11 +106,11 @@ function Navbar() {
                                 </Link>
                             </li>
                             <li>
-                                <Link to="#search" className="element">
-                                    <FontAwesomeIcon icon={faMagnifyingGlass} />
+                                <Link to="/history" className="element">
+                                    <FontAwesomeIcon icon={faClock} />
                                 </Link>
                             </li>
-                            <li style={{ display: "flex", alignItems: "center", position: "relative", marginRight: "60px" }}>
+                            <li style={{marginLeft:"25px", display: "flex", alignItems: "center", position: "relative", marginRight: "60px" }}>
                                 <div className="user__icon">
                                     <FontAwesomeIcon icon={faUser} style={{ display: "block" }} />
                                     <div className="show__option">
