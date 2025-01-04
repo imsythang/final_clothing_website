@@ -1,20 +1,28 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import productApi from '../api/productApi';
+import productApi from '../../api/productApi';
 import styles from '../../styles/productinfo.module.scss';
 const Productinfo = () => {
     const navigate = useNavigate();
     const handleCreateProduct = () => {
         navigate('/listproduct/newproduct');
     };
+    const token = window.localStorage.getItem("token");
     const [prdtList, setPrdtList] = useState([])
     useEffect(() => {
         const fetchPrdt = async () => {
-            const emp = await productApi.getAll();
+            const emp = await productApi.getAll(token);
             setPrdtList(emp)
         }
         fetchPrdt();
     }, [])
+    const formatCurrency = (value) => {
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+            minimumFractionDigits: 0,
+        }).format(value);
+    };
     return (
         <>
             <div className={styles.head}>
@@ -27,19 +35,25 @@ const Productinfo = () => {
                     <tr>
                         <th>Mã sản phẩm</th>
                         <th> Sản phẩm</th>
-                        <th>Kho</th>
-                        <th> Loại sản phẩm</th>
+                        <th>Loại sản phẩm</th>
+                        <th>Hãng</th>
+                        <th>Giá bán</th>
+                        <th>Tồn kho</th>
+                        <th> Tình trạng</th>
                     </tr>
                 </thead>
                 <tbody>
                     {prdtList.map((data) => {
                         return (
                             <>
-                                <tr onClick={() => navigate(`/listproduct/edit`)}>
-                                    <td>{data.product_id}</td>
-                                    <td>{data.describle}</td>
-                                    <td>{data.location}</td>
-                                    <td>{data.kind}</td>
+                                <tr >
+                                    <td>{data.productID}</td>
+                                    <td>{data.name}</td>
+                                    <td>{data.type}</td>
+                                    <td>{data.brand}</td>
+                                    <td>{formatCurrency(data.priceSelling)}</td>
+                                    <td>{data.quantityImport - data.quantitySold}</td>
+                                    <td>{data.status === "in_stock" ? "Còn hàng" : "Hết hàng"}</td>
                                 </tr>
                             </>
                         )

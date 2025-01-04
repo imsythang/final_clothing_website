@@ -33,7 +33,7 @@ function LoginForm() {
 
                 console.log("đây là role: ", role);
                 if (role === "ADMIN") {
-                    navigate("/productpage");
+                    navigate("/admin/homepage");
                 }
                 else {
                     navigate("/");

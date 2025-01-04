@@ -1,11 +1,29 @@
-import { useParams } from "react-router-dom";
 import styles from "../../styles/adminHomePage.module.scss";
-import NavbarAdmin from "../../components/NavigationBar/Navbar";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSackDollar, faBox, faUser } from "@fortawesome/free-solid-svg-icons";
-
+import { useState, useEffect } from "react";
+import axios from "axios";
 function Home() {
-    //const { shop_id } = useParams();
+    const [overall, setOverall] = useState([])
+    const token = window.localStorage.getItem("token");
+    const formatCurrency = (value) => {
+        return new Intl.NumberFormat('vi-VN', {
+            style: 'currency',
+            currency: 'VND',
+            minimumFractionDigits: 0,
+        }).format(value);
+    };
+    useEffect(() => {
+        const fetchOverall = async () => {
+            const emp = await axios.get('http://localhost:8080/admin/totalSalesToday', {
+                headers: {
+                    'Authorization': `Bearer ${token}` // Thêm token vào header
+                }
+            });
+            setOverall(emp)
+        }
+        fetchOverall();
+    }, [])
     return (
         <>
             <div className={styles.dashboard}>
@@ -17,7 +35,7 @@ function Home() {
                             <span className={styles.icon}><FontAwesomeIcon icon={faSackDollar} /></span>
                             <div>
                                 <p>Doanh thu</p>
-                                <h3>0 VND</h3>
+                                <h3>{formatCurrency(overall.data.total)}</h3>
                             </div>
                         </div>
                         <div className={styles.vertical_line}></div>
@@ -25,7 +43,7 @@ function Home() {
                             <span className={styles.icon}><FontAwesomeIcon icon={faBox} /></span>
                             <div>
                                 <p>Khách hàng</p>
-                                <h3>0</h3>
+                                <h3>{overall.data.customerCount}</h3>
                             </div>
                         </div>
                         <div className={styles.vertical_line}></div>
@@ -33,7 +51,7 @@ function Home() {
                             <span className={styles.icon}><FontAwesomeIcon icon={faUser} /></span>
                             <div>
                                 <p>Đơn hàng</p>
-                                <h3>0</h3>
+                                <h3>{overall.data.orderCount}</h3>
                             </div>
                         </div>
                     </div>

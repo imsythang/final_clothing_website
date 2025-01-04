@@ -27,9 +27,12 @@ const Inventory = () => {
               <tr>
                 <th>Mã sản phẩm</th>
                 <th>Sản phẩm</th>
-                <th>Trạng thái</th>
+                <th>Giá nhập</th>
+                <th>Giá bán</th>
+                <th>Số lượng nhập</th>
+                <th>Số lượng bán</th>
                 <th>Số lượng tồn</th>
-                <th>Cập nhật số lượng</th>
+                <th>Trạng thái</th>
               </tr>
             </thead>
             <tbody>

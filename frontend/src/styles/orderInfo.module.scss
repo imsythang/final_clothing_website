@@ -60,26 +60,38 @@ $hover-color: #60443a;
         color: #60443a;
         font-size: 25px;
     }
+
     .centerdetail {
         margin-top: -40px;
-        margin-left: 30%;
+        margin-left: 40%;
     }
+
     .detail {
-        margin-left: 175px;
+        margin-top: 20px;
         font-size: 14px;
         line-height: 1.6;
+
+        .leftdetail {
+            display: inline-block;
+
+            img {
+                width: 150px;
+            }
+        }
+
+        .rightdetail {
+            margin-left: 175px;
+            display: inline-block;
+        }
     }
 
     .leftitem {
         display: inline-block;
         text-align: center;
 
-        h5 {
+        h2 {
             color: #60443a;
-        }
 
-        p {
-            font-size: 20px;
         }
     }
 
@@ -88,13 +100,16 @@ $hover-color: #60443a;
         position: absolute;
         left: 75%;
         text-align: center;
+
         h5 {
             color: #60443a;
         }
     }
+
     hr {
         margin-top: 10px;
     }
+
     .edit_button {
         background-color: #fff;
         padding: 5px 10px;
@@ -112,8 +127,9 @@ $hover-color: #60443a;
     }
 }
 
-.content2 {
-    padding: 15px;
+
+.content .content3 {
+    padding: 10px 10px;
     position: absolute;
     top: 0%;
     left: 100%;
@@ -122,45 +138,12 @@ $hover-color: #60443a;
     font-family: "Josefin Sans";
     width: 55%;
 
-    h3 {
-        color: #60443a;
-        font-size: 25px;
+    p {
+        padding-top: 15px;
     }
 
-    .order {
-        padding-left: 20px;
-        font-size: 15px;
-
-        .orderitem {
-            p {
-                display: inline-block;
-                padding: 0 5px;
-                margin-right: 10px;
-                border: 2px solid #60443a;
-            }
-        }
-    }
-}
-
-.content .content3 {
-    padding: 10px 10px;
-    position: absolute;
-    top: 32%;
-    left: 100%;
-    background-color: #fff2e3;
-    margin-left: 20px;
-    font-family: "Josefin Sans";
-    width: 55%;
-    label {
-        margin-bottom: 0px;
-    }
-
-    input,
-    textarea {
-        margin-bottom: 0px;
-        width: 100%;
-        border: 2px solid #60443a;
-        padding: 5px;
+    hr {
+        margin-bottom: 30px;
     }
 }
 

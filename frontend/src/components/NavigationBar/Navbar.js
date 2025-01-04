@@ -30,7 +30,7 @@ function NavbarAdmin() {
                     <FontAwesomeIcon icon={faHouse} />
                     <a> Nét</a>
                 </div>
-                <div className={styles.menu_item1} onClick={() => navigate(`/${shop_id}`)}>
+                <div className={styles.menu_item1} onClick={() => navigate(`/admin/homepage`)}>
                     <FontAwesomeIcon icon={faHouseChimneyWindow} />
                     <a> Tổng quan</a>
                 </div>
@@ -45,9 +45,6 @@ function NavbarAdmin() {
                     {isOpen && (
                         <ul className={styles.submenu}>
                             <li onClick={() => navigate(`/listorder`)}>Danh sách đơn hàng</li>
-                            <li onClick={() => navigate(`/neworder`)}>Đơn hàng mới</li>
-                            <li onClick={() => navigate(`/defectiveorder`)}>Đơn hàng lỗi</li>
-                            <li onClick={() => navigate(`/issueorder`)}>Đơn nhập hàng</li>
                         </ul>
                     )}
                 </div>

@@ -20,7 +20,9 @@ import ShoppingCart from './user/shoppingCart';
 import SizeGuild from './user/sizeGuild';
 import WriteReview from "./user/writeReview";
 import MyInfo from './user/MyInfo';
-// import Orders from './admin/Orders';
+import Orders from './admin/Orders';
+import OrderInfo from './admin/OrderInfo';
+import Productinfo from './admin/Productinfo';
 function App() {
   return (
     <Router>
@@ -63,7 +65,10 @@ function App() {
           <Route path="/categorypage" element={<CategoryPage />} />
           <Route path="/productpage" element={<ProductPage />} />
           <Route path="/warehouse" element={<Warehouse />} />
+          <Route path="/listorder" element={<Orders />} />
+          <Route path="/listorder/:order_id" element={<OrderInfo />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/listproduct' element={<Productinfo />} />
         </Routes>
       </div>
     </Router>
