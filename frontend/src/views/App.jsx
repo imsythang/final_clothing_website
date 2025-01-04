@@ -59,7 +59,6 @@ function App() {
           {/* <Route path='/customer' element= {<Customers />} /> */}
 
           {/* <Route path='/admin/orderInfo' element = {<OrderInfo />} /> */}
-    
           <Route path='/admin/homepage' element={<Home />} />
           <Route path="/categorypage" element={<CategoryPage />} />
           <Route path="/productpage" element={<ProductPage />} />
