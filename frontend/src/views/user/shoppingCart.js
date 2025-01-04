@@ -1,35 +1,93 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import BasicBreadcrumbs from "../../components/breadcrumb/breadcrumb";
 import CartItem from "../../components/cartItem/cartItem";
 import Footer from "../../components/footer/footer";
 import OrderSummary from "../../components/orderSummary/orderSummary";
 import styles from "../../styles/shoppingCart.module.scss";
+import axios from "axios";
 function ShoppingCart() {
     const breadcrumbLinks = [
         { name: 'Nét - Homepage', path: '/' },
         { name: 'Giỏ hàng', path: '/shoppingcart' },
     ];
-    const items = [
-        { name: 'Broadcloth Shirt | Button Down', gender: 'Nam', color: '#ADB2C7', size: 'L', price: 300000, pic: "product_image5.png", id: '123' },
-        { name: 'Broadcloth Shirt | Button Down', gender: 'Nam', color: '#BCAAB0', size: 'L', price: 300000, pic: "product_image6.jpg", id: '234' },
-        { name: 'KENSHI YONEZU Short Sleeve UT (Ghibli) ', gender: 'Nam', color: '#F4F3EF', size: 'L', price: 300000, pic: "product_image7.jpg", id: '345' },
-    ]
-    const [list, setList] = React.useState(items);
-    function handleRemove(id) {
-        const newList = list.filter((item) => item.id !== id);
-        setList(newList);
+
+    const [list, setList] = useState([]); // Danh sách giỏ hàng
+    const [loading, setLoading] = useState(true); // Trạng thái loading
+
+    const token = window.localStorage.getItem("token");
+
+
+
+
+
+
+    // Tải dữ liệu từ API
+    useEffect(() => {
+        async function fetchCart() {
+            try {
+                console.log(token);
+                const response = await axios.get('http://localhost:8080/user/orders/myCart', {
+                    headers: {
+                        'Authorization': `Bearer ${token}` // Thêm token vào header
+                    }
+                }); // Sử dụng Axios để gọi API
+                setList(response.data);
+                setLoading(false);
+            } catch (error) {
+                console.error("Lỗi khi tải giỏ hàng:", error);
+            }
+        }
+        fetchCart();
+    }, []);
+
+    console.log("danh sách ", list);
+
+    async function handleRemove(productID) {
+        try {
+            const response = await axios.delete(`http://localhost:8080/user/orders/itemcart/${productID}`,{
+                headers: {
+                    'Authorization': `Bearer ${token}` // Thêm token vào header
+                }
+            });
+            if (response.status === 200) {
+                alert("Xóa sản phẩm thành công!");
+                setList(list.filter(item => item.productID !== productID));
+            }
+        } catch (error) {
+            console.error("Lỗi khi xóa sản phẩm:", error);
+            alert("Lỗi khi xóa sản phẩm!");
+        }
     }
-    function subTotal() {
-        return items.reduce((sum, item) => sum + item.price, 0);
+
+
+    async function handleCheckout() {
+        try {
+            const response = await axios.put('http://localhost:8080/user/orders/checkout',{
+                headers: {
+                    'Authorization': `Bearer ${token}` // Thêm token vào header
+                }
+            });
+            if (response.status === 200) {
+                alert(response.data); // Hiển thị thông báo từ server
+                setList([]); // Làm trống giỏ hàng sau khi thanh toán
+            }
+        } catch (error) {
+            console.error("Lỗi khi thanh toán:", error);
+            alert("Lỗi khi thanh toán!");
+        }
     }
+
+
     return (
         <>
             <BasicBreadcrumbs links={breadcrumbLinks} />
             <h2 className={styles.title}>Giỏ hàng </h2>
             <CartItem items={list} onRemove={handleRemove} />
-            <OrderSummary itemsSubtotal={subTotal()} vatIncluded={0} couponDiscount={0} orderTotal={subTotal() + 0 - 0} />
-            <Footer />
+            {list.length > 0 && <OrderSummary item={list[0]} onClick={handleCheckout} />}
+            <div style={{ marginTop: "700px" }}>
+                <Footer />
+            </div>
         </>
 
     )

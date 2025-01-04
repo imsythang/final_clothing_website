@@ -28,6 +28,7 @@ function App() {
 
           {/* unauthorized route */}
           <Route path='/' element={<HomePage />} />
+          
           <Route path="/newArrival" element={<NProduct />} />
           <Route path="/men" element={<MenProduct />} />
           <Route path="/women" element={<WomenProduct />} />

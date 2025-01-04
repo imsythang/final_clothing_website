@@ -7,21 +7,17 @@ function CartItem({ items, onRemove }) {
         <>
             {items.map((item) => (
                 <div className={styles.cart_item}>
-                    <img src={require(`../../img/${item.pic}`)} alt={item} className={styles['image']} />
-                    <div className={styles.remove} onClick={() => onRemove(item.id)}>x</div>
+                    <img src={item.image} alt={item} className={styles['image']} />
+                    <div className={styles.remove} onClick={() => onRemove(item.productId)}>x</div>
                     <div className={styles.details}>
                         <h3 className={styles.name}>{item.name}</h3>
 
-                        <p className={styles.detail}>Gender:     {item.gender}</p>
+                        <p className={styles.detail}>Gender: {item.gender}</p>
                         <p className={styles.detail}>
                             Color:   <FontAwesomeIcon icon={faSquare} style={{ color: item.color }} />
                         </p>
-                        <p className={styles.detail}>Size:     {item.size}</p>
-                        <p className={styles.price}>{item.price} VND</p>
-                    </div>
-
-                    <div className={styles.checkboxWrapper}>
-                        <input type="checkbox" className={styles.checkbox} />
+                        <p className={styles.detail}>Quantity: {item.quantity} </p>
+                        <p className={styles.price}>{item.price_selling.toLocaleString('vi-VN')} VND</p>
                     </div>
                 </div>
             ))
