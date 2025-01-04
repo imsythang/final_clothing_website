@@ -7,7 +7,7 @@ import BasicBreadcrumbs from "../../components/breadcrumb/breadcrumb";
 import Footer from '../../components/footer/footer';
 import styles from "../../styles/Nproduct.module.scss";
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 function MenProduct() {
     const breadcrumbLinks = [
         { name: 'Nét - Homepage', path: '/' },
@@ -40,12 +40,14 @@ function MenProduct() {
         fetchProducts();
     }, []);
 
-    const navigate = useNavigate()
+
     const Product = ({ product }) => {
-        const { imageUrl, name, priceSelling, ratingCount, ratingAverage } = product;
+        const { imageUrl, name, priceSelling, ratingCount, ratingAverage,productID } = product;
         return (
-            <div className={`${styles.product} product product_${product.productID}`} onClick={() => navigate(`/product/${product.productID}`)}>
-                <img className={`image_${product.productID}`} src={imageUrl} alt={name} />
+            <div className={`${styles.product} product product_${product.productID}`}>
+                <Link to={ `/product?productID=${productID}`}>
+                    <img className={`image_${product.productID}`} src={imageUrl} alt={name} />
+                </Link>
 
                 <div style={{ padding: "0 0 15px 10px" }}>
                     <p className={styles.title}>{name}</p>

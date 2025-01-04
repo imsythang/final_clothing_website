@@ -48,9 +48,11 @@ function NProduct() {
         return (
             <div className={`${styles.product} product product_${product.productID}`}>
                 {/* Dùng Link để chuyển tới trang chi tiết sản phẩm */}
-                <Link to={`/product/${productID}`}>
+
+                <Link to={ `/product?productID=${productID}`}>
                     <img className={`image_${product.productID}`} src={imageUrl} alt={name} />
                 </Link>
+
 
                 <div style={{ padding: "0 0 15px 10px" }}>
                     <p className={styles.title}>{name}</p>

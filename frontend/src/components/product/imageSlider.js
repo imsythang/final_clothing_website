@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
-import clsx from "clsx"
-
-
+import clsx from "clsx";
 import style from './imageSlider.module.scss';
 
 function ImageSlider({ children }) {
@@ -10,35 +8,42 @@ function ImageSlider({ children }) {
     const [timeID, setTimeID] = useState(null);
 
     useEffect(() => {
-        if (slideDone) {
-            setSlideDone(false);
-            setTimeID(
-                setTimeout(() => {
-                    slideNext();
-                    setSlideDone(true);
-                }, 7000)
-            );
+        // Kiểm tra nếu children là mảng và không phải undefined
+        if (Array.isArray(children) && children.length > 0) {
+            if (slideDone) {
+                setSlideDone(false);
+                setTimeID(
+                    setTimeout(() => {
+                        slideNext();
+                        setSlideDone(true);
+                    }, 7000)
+                );
+            }
         }
-    }, [slideDone]);
+    }, [slideDone, children]);  // Thêm `children` vào dependency
 
     const slideNext = () => {
-        setActiveIndex((val) => {
-            if (val >= children.length - 1) {
-                return 0;
-            } else {
-                return val + 1;
-            }
-        });
+        if (Array.isArray(children)) {
+            setActiveIndex((val) => {
+                if (val >= children.length - 1) {
+                    return 0;
+                } else {
+                    return val + 1;
+                }
+            });
+        }
     };
 
     const slidePrev = () => {
-        setActiveIndex((val) => {
-            if (val <= 0) {
-                return children.length - 1;
-            } else {
-                return val - 1;
-            }
-        });
+        if (Array.isArray(children)) {
+            setActiveIndex((val) => {
+                if (val <= 0) {
+                    return children.length - 1;
+                } else {
+                    return val - 1;
+                }
+            });
+        }
     };
 
     const AutoPlayStop = () => {
@@ -61,7 +66,8 @@ function ImageSlider({ children }) {
                 onMouseEnter={AutoPlayStop}
                 onMouseLeave={AutoPlayStart}
             >
-                {children.map((item, index) => {
+                {/* Kiểm tra nếu children là mảng trước khi gọi map */}
+                {Array.isArray(children) && children.length > 0 && children.map((item, index) => {
                     return (
                         <div
                             className={clsx(style.slider__item, {
@@ -69,12 +75,10 @@ function ImageSlider({ children }) {
                             })}
                             key={index}
                         >
-                            {item}
+                            <img key={index} src={item} alt={`Product image ${index + 1}`} className={style['image-show']} />
                         </div>
                     );
                 })}
-
-
                 <button
                     className={style['slider__btn-next']}
                     onClick={(e) => {
@@ -96,19 +100,20 @@ function ImageSlider({ children }) {
             </div>
 
             <div className={style.container__slider__links}>
-                {children.map((item, index) => {
+                {/* Tương tự kiểm tra ở đây nếu cần */}
+                {Array.isArray(children) && children.length > 0 && children.map((item, index) => {
                     return (
                         <img
                             key={index}
                             className={clsx(style['container__slider__links-small'], {
                                 [style['container__slider__links-small-active']]: activeIndex === index
                             })}
-                            src={item.props.src}
+                            src={item}
                             onClick={(e) => {
                                 e.preventDefault();
                                 setActiveIndex(index);
                             }}
-                        ></img>
+                        />
                     );
                 })}
             </div>
@@ -117,4 +122,3 @@ function ImageSlider({ children }) {
 }
 
 export default ImageSlider;
-

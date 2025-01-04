@@ -7,12 +7,13 @@ import Filter from "../../components/Filter2/filter2";
 import BasicBreadcrumbs from "../../components/breadcrumb/breadcrumb";
 import Footer from '../../components/footer/footer';
 import styles from "../../styles/Nproduct.module.scss";
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+
 
 function WomenProduct() {
     const breadcrumbLinks = [
         { name: 'Nét - Homepage', path: '/' },
-        { name: 'Trang phục nữ', path: '/women' },
+        { name: 'Trang phục nữ', path: '/' },
     ];
     const [openDiv, setOpenDiv] = useState(null);
     const [selectedOption, setSelectedOption] = useState('Nổi bật');
@@ -40,12 +41,14 @@ function WomenProduct() {
 
         fetchProducts();
     }, []);
-    const navigate = useNavigate()
+
     const Product = ({ product }) => {
-        const { imageUrl, name, priceSelling, ratingCount, ratingAverage } = product;
+        const { imageUrl, name, priceSelling, ratingCount, ratingAverage,productID } = product;
         return (
-            <div className={`${styles.product} product product_${product.productID}`} onClick={() => navigate(`/product/${product.productID}`)}>
-                <img className={`image_${product.productID}`} src={imageUrl} alt={name} />
+            <div className={`${styles.product} product product_${product.productID}`}>
+                <Link to={ `/product?productID=${productID}`}>
+                    <img className={`image_${product.productID}`} src={imageUrl} alt={name} />
+                </Link>
 
                 <div style={{ padding: "0 0 15px 10px" }}>
                     <p className={styles.title}>{name}</p>

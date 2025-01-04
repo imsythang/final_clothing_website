@@ -1,32 +1,32 @@
 import React from 'react';
 import styles from "./orderSummary.module.scss";
 
-const OrderSummary = ({ itemsSubtotal, vatIncluded, couponDiscount, orderTotal }) => {
+const OrderSummary = ({ item,onClick,count }) => {
     return (
         <>
             <div className={styles.orderSummary}>
-                <h2>ORDER SUMMARY (3)</h2>
+                <h2>ORDER SUMMARY ({count})</h2>
                 <div className={styles.summaryItem}>
                     <span>Item(s) subtotal</span>
-                    <span>{itemsSubtotal} VND</span>
+                    <span>{item().toLocaleString('vi-VN')} VND</span>
                 </div>
                 <div className={styles.summaryItem}>
                     <span>Subtotal</span>
-                    <span>{itemsSubtotal} VND</span>
+                    <span>{item().toLocaleString("vi-VN")} VND</span>
                 </div>
                 <div className={styles.summaryItem}>
                     <span>VAT included</span>
-                    <span>{vatIncluded} VND</span>
+                    <span>0 VND</span>
                 </div>
                 <div className={styles.summaryItem}>
                     <span>Coupon/Voucher</span>
-                    <span>-{couponDiscount} VND</span>
+                    <span>-0 VND</span>
                 </div>
                 <div className={styles.summaryTotal}>
                     <span>Order total</span>
-                    <span>{orderTotal} VND</span>
+                    <span>{item().toLocaleString('vi-VN')} VND</span>
                 </div>
-                <button className={styles.checkoutButton}>CHECKOUT</button>
+                <button className={styles.checkoutButton} onClick={onClick}>CHECKOUT</button>
             </div>
 
         </>

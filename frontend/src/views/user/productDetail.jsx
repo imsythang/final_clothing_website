@@ -1,77 +1,102 @@
+import { faStar, faStarHalfAlt } from '@fortawesome/free-solid-svg-icons';
 import clsx from "clsx";
-import { useState, useEffect } from 'react';
-import { Link } from "react-router-dom";
-import { useParams } from "react-router-dom";
-import axios from "axios";
-import React from "react";
+import { useEffect, useState } from 'react';
+import { Link, useLocation } from "react-router-dom";
 
 import Footer from '../../components/footer/footer';
 import ImageSlider from '../../components/product/imageSlider';
 import SlideToggle from '../../components/product/slideToggle';
-import { faStar } from '@fortawesome/free-solid-svg-icons';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import style1 from "../../styles/grid.module.scss";
 import style from '../../styles/product.module.scss';
 
+
+import axios from "axios";
+
+
 function Product() {
     const [quantity, setQuantity] = useState(1);
+    const [product, setProduct] = useState({}); // State để lưu trữ thông tin sản phẩm
+
+    const location = useLocation();
+    const queryParams = new URLSearchParams(location.search);
+    const productId = queryParams.get('productID'); // Lấy giá trị từ tham số 'customerId'
+
+    // lấy token
+    const token = window.localStorage.getItem("token");
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(`http://localhost:8080/global/product/detail/${productId}`);
+                console.log(response);
+                setProduct(response.data);
+
+            } catch (error) {
+                console.error("Lỗi khi gọi API:", error);
+            }
+        };
+        fetchData();
+    }, [productId]);
+    console.log(new Date());
+
+    const handleAddToCart = async (e) => {
+        e.preventDefault(); // Ngừng hành động submit mặc định của form
+
+        // Kiểm tra xem có token không
+        const token = localStorage.getItem("token");
+        if (!token) {
+            alert("Vui lòng đăng nhập trước khi thêm vào giỏ hàng!");
+            return; // Dừng nếu không có token
+        }
+
+        // Lấy ngày hiện tại và định dạng lại thành "YYYY-MM-DD"
+        const currentDate = new Date();
+        const formattedDate = currentDate.toLocaleDateString("en-CA"); // "en-CA" sẽ đưa ra định dạng "YYYY-MM-DD"
+
+        // Dữ liệu cần gửi
+        const data = {
+            productId: product.productID,  // Đảm bảo productId tồn tại trong state product
+            quantity: quantity,
+            date: formattedDate // Sử dụng ngày đã được định dạng
+        };
+
+        try {
+            const response = await axios.post('http://localhost:8080/user/orders/addtocart', data, {
+                headers: {
+                    'Authorization': `Bearer ${token}` // Thêm token vào header
+                }
+            });
+
+            console.log('Item added to cart', response.data);
+            alert("Thêm thành công vào giỏ hàng!"); // Thông báo thành công
+
+        } catch (error) {
+            // Xử lý lỗi khi thêm vào giỏ hàng
+            console.error('Error adding item to cart:', error);
+            if (error.response && error.response.status === 401) {
+                alert("Vui lòng đăng nhập trước khi thêm vào giỏ hàng!");
+            } else {
+                alert("Đã có lỗi xảy ra. Vui lòng thử lại!");
+            }
+        }
+    };
+
+
+
+
 
     const handleChange = (e) => {
         setQuantity(e.target.value);
-    }
-    const { productID } = useParams()
-    const [products, setProducts] = useState([]); // Dữ liệu sản phẩm từ API
-    const [loading, setLoading] = useState(true); // Trạng thái tải
-    useEffect(() => {
-        const fetchProducts = async () => {
-            try {
-                const response = await axios.get(`http://localhost:8080/global/product/detail/${productID}`); // Gọi API bằng Axios
-                console.log(response);
-                setProducts(response.data); // Cập nhật danh sách sản phẩm
-                setLoading(false); // Hoàn tất tải
-            } catch (error) {
-                console.error("Lỗi khi gọi API:", error);
-                setLoading(false);
-            }
-        };
-
-        fetchProducts();
-    }, []);
-
-    const handleSubmit = async (e) => {
-        const isLoggedIn = window.localStorage.getItem("LoggedIn");
-        const token = window.localStorage.getItem("token");
-        if (isLoggedIn) {
-            e.preventDefault(); // Prevent default form submission behavior
-            const formData = {
-                "productId": productID,
-                "quantity": 1,
-                "date": "2025-01-01"
-            }
-            try {
-                const response = await axios.post(`http://localhost:8080/user/orders/addtocart`, formData,
-                    {
-                        headers: {
-                            Authorization: `Bearer ${token}`, // Add the token to the Authorization header
-                            "Content-Type": "application/json",  // Optional, specify content type
-                        },
-                    }
-                ); // Replace with your API endpoint
-                alert("Thêm vào giỏ hàng thành công!");
-
-            } catch (error) {
-                console.error("Error:", error);
-                alert("Đã xảy ra lỗi khi lưu dữ liệu!");
-            }
-        } else { alert("Mời đăng nhập trước!") }
-
     };
+
     return (
         <>
             <div className={style.container}>
                 <div className={clsx(style1.grid, style1.wide)}>
-                    <h1 className={style.heading}>Thông tin sản phẩm </h1>
+                    <h1 className={style.heading}>Thông tin sản phẩm</h1>
                     <div className={clsx(style1.row, style.row1)}>
                         <div className={clsx(style.content, style1.col, style1['l-7'])}>
                             <div className={clsx(style.slider, style1.row)}>
@@ -79,17 +104,7 @@ function Product() {
 
                                 </div>
                                 <div className={clsx(style1.col, style1['l-8'])}>
-                                    {/* <img src={image1} alt='Product Image' className={style['image-show']} /> */}
-                                    <ImageSlider>
-                                        {
-                                            React.Children.toArray(products.images).map((data) => {
-                                                return (
-                                                    <>
-                                                        <img src={data} alt='Product Image' className={style['image-show']} />
-                                                    </>
-                                                )
-                                            })}
-                                    </ImageSlider>
+                                    <ImageSlider>{product.images}</ImageSlider>
                                 </div>
                             </div>
 
@@ -97,8 +112,8 @@ function Product() {
                                 <div className={clsx(style.flex, style['space-between'], style.title)}>
                                     <h1 className={style.description__title}>DESCRIPTION</h1>
                                     <div>
-                                        <p className={style.Desproduct__name}>{products.name}</p>
-                                        <p className={style.Product__id}>ID: {productID}</p>
+                                        <p className={style.Desproduct__name}>Product ID</p>
+                                        <p className={style.Product__id}>{product.productID}</p>
                                     </div>
                                 </div>
                                 <SlideToggle />
@@ -106,16 +121,32 @@ function Product() {
                             </div>
                             <div className={style.review}>
                                 <div className={clsx(style.flex, style['space-between'], style.title)}>
-                                    <h1 className={style.description__title}>REVIEWS ({products.commentCount})</h1>
+                                    <h1 className={style.description__title}>REVIEWS</h1>
                                     <div className={style.relative}>
-                                        <span>
-                                            <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                            <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                            <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                            <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                            <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                        </span>
-                                        <span className={style.reviews__count}>({products.ratingCount})</span>
+                                        {product.ratingAverage > 0 && (
+                                            <div className={style.iconstar}>
+                                                <span>
+                                                    {/* Hiển thị sao đầy đủ */}
+                                                    {[...Array(Math.floor(product.ratingAverage))].map((_, index) => (
+                                                        <FontAwesomeIcon key={`full-${index}`} icon={faStar} />
+                                                    ))}
+
+                                                    {/* Hiển thị sao nửa nếu cần */}
+                                                    {product.ratingAverage % 1 !== 0 && (
+                                                        <FontAwesomeIcon key="half" icon={faStarHalfAlt} style={{ opacity: 0.5 }} />
+                                                    )}
+
+                                                    {/* Hiển thị sao rỗng nếu có */}
+                                                    {[...Array(5 - Math.ceil(product.ratingAverage))].map((_, index) => (
+                                                        <FontAwesomeIcon key={`empty-${index}`} icon={faStar} style={{ color: 'lightgray' }} />
+                                                    ))}
+                                                </span>
+
+                                                <span style={{ fontWeight: 600, fontSize: "30px", position: "relative", left: "15px", top: "5px", color: "#000" }}>
+                                                    ({product.ratingCount})
+                                                </span>
+                                            </div>
+                                        )}
                                     </div>
 
                                 </div>
@@ -133,7 +164,7 @@ function Product() {
                                                 <FontAwesomeIcon className={style.product__star} icon={faStar} />
                                                 <FontAwesomeIcon className={style.product__star} icon={faStar} />
                                             </span>
-                                            <span className={style.reviews__count}>({products.ratingCount})</span>
+                                            <span className={style.reviews__count}>(149)</span>
                                         </div>
                                         <div>
                                             <span>
@@ -143,7 +174,7 @@ function Product() {
                                                 <FontAwesomeIcon className={style.product__star} icon={faStar} />
                                                 <FontAwesomeIcon className={clsx(style.product__star, style['disable-star'])} icon={faStar} />
                                             </span>
-                                            <span className={style.reviews__count}>{products.commentCount}</span>
+                                            <span className={style.reviews__count}>(9)</span>
                                         </div><div>
                                             <span>
                                                 <FontAwesomeIcon className={style.product__star} icon={faStar} />
@@ -180,11 +211,11 @@ function Product() {
                                         </div>
                                         <div className={clsx(style.flex, style['space-between'])}>
                                             <h4>True to size</h4>
-                                            <h4>({products.ratingCount})</h4>
+                                            <h4>(103)</h4>
                                         </div>
                                         <div className={clsx(style.flex, style['space-between'])}>
                                             <h4>Loose</h4>
-                                            <h4>(0)</h4>
+                                            <h4>(46)</h4>
                                         </div>
                                     </div>
                                 </div>
@@ -215,21 +246,38 @@ function Product() {
 
                         </div>
 
-
                         <div className={clsx(style1.col, style1['l-4'])}>
-                            <h1 className={style.product__heading}>{products.name}</h1>
-                            <h1 className={style.product__price}>{products.priceSelling}</h1>
-                            <div className={style.product__reviews}>
-                                <span>
-                                    <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                    <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                    <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                    <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                    <FontAwesomeIcon className={style.product__star} icon={faStar} />
-                                </span>
-                                <span className={style.reviews__count}>{products.ratingCount}</span>
-                            </div>
-                            <form onClick={handleSubmit}>
+                            <form onSubmit={handleAddToCart}>
+                                <h1 className={style.product__heading}>{product.name}</h1>
+                                <h1 className={style.product__price}> {product?.priceSelling
+                                    ? product.priceSelling.toLocaleString('vi-VN') + ' VND'
+                                    : 'Chưa biết giá!'}</h1>
+                                <div className={style.product__reviews}>
+                                    {product.ratingAverage > 0 && (
+                                        <div className={style.iconstar}>
+                                            <span>
+                                                {/* Hiển thị sao đầy đủ */}
+                                                {[...Array(Math.floor(product.ratingAverage))].map((_, index) => (
+                                                    <FontAwesomeIcon key={`full-${index}`} icon={faStar} />
+                                                ))}
+
+                                                {/* Hiển thị sao nửa nếu cần */}
+                                                {product.ratingAverage % 1 !== 0 && (
+                                                    <FontAwesomeIcon key="half" icon={faStarHalfAlt} style={{ opacity: 0.5 }} />
+                                                )}
+
+                                                {/* Hiển thị sao rỗng nếu có */}
+                                                {[...Array(5 - Math.ceil(product.ratingAverage))].map((_, index) => (
+                                                    <FontAwesomeIcon key={`empty-${index}`} icon={faStar} style={{ color: 'lightgray' }} />
+                                                ))}
+                                            </span>
+
+                                            <span style={{ fontWeight: 600, fontSize: "30px", position: "relative", left: "15px", top: "5px", color: "#000" }}>
+                                                ({product.ratingCount})
+                                            </span>
+                                        </div>
+                                    )}
+                                </div>
                                 <div className={style.product__option}>
                                     <h2 className={style.option__heading}>COLOR</h2>
                                     <div className={style.product__color}>
@@ -296,7 +344,6 @@ function Product() {
                                 <p className={style.product__status}>In Stock</p>
                                 <button className={style.btn__submit} type="submit">ADD TO CART</button>
                             </form>
-
                         </div>
                     </div>
                 </div>
