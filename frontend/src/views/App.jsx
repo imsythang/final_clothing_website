@@ -23,6 +23,10 @@ import MyInfo from './user/MyInfo';
 import Orders from './admin/Orders';
 import OrderInfo from './admin/OrderInfo';
 import Productinfo from './admin/Productinfo';
+import Inventory from './admin/Inventory';
+import Customers from './admin/Customers';
+
+
 function App() {
   return (
     <Router>
@@ -52,23 +56,17 @@ function App() {
           {/* protected route */}
           <Route element={<ProtectedRoute />}>
 
-
-
           </Route>
-
-
-          {/* admin */}
-          {/* <Route path='/customer' element= {<Customers />} /> */}
-
-          {/* <Route path='/admin/orderInfo' element = {<OrderInfo />} /> */}
           <Route path='/admin/homepage' element={<Home />} />
           <Route path="/categorypage" element={<CategoryPage />} />
           <Route path="/productpage" element={<ProductPage />} />
           <Route path="/warehouse" element={<Warehouse />} />
           <Route path="/listorder" element={<Orders />} />
           <Route path="/listorder/:order_id" element={<OrderInfo />} />
-          <Route path='/profile' element={<Profile />} />
+          <Route path='/listcus/:cusID' element={<Profile />} />
           <Route path='/listproduct' element={<Productinfo />} />
+          <Route path='/inventory' element={<Inventory />} />
+          <Route path='/listcus' element={<Customers />} />
         </Routes>
       </div>
     </Router>

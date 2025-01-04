@@ -30,11 +30,7 @@ function NavbarAdmin() {
                     <FontAwesomeIcon icon={faHouse} />
                     <a> Nét</a>
                 </div>
-<<<<<<< HEAD
-                <div className={styles.menu_item1} onClick={() => navigate(`/admin/homepage`)}>
-=======
                 <div className={styles.menu_item1} onClick={() => navigate("/admin/homepage")}>
->>>>>>> fd3d681db9893f87bae16ef542f1de70a8f9d7df
                     <FontAwesomeIcon icon={faHouseChimneyWindow} />
                     <a> Tổng quan</a>
                 </div>
@@ -63,16 +59,12 @@ function NavbarAdmin() {
                     {isOpen1 && (
                         <ul className={styles.submenu}>
                             <li onClick={() => navigate(`/listproduct`)}>Danh sách sản phẩm</li>
-                            <li onClick={() => navigate(`/supplier`)}>Nhà cung cấp sản phẩm</li>
                             <li onClick={() => navigate(`/inventory`)}>Quản lý kho</li>
                         </ul>
                     )}
                 </div>
                 <li className={styles.menu_item4} onClick={() => navigate(`/listcus`)}>
                     Khách hàng
-                </li>
-                <li className={styles.menu_item5} onClick={() => navigate(`/listemp`)}>
-                    Khuyến mãi
                 </li>
                 <li className={styles.menu_item6} onClick={handleLogout}>
                     Đăng xuất

@@ -1,19 +1,19 @@
 import React from 'react';
-import Navbar from '../../components/NavigationBar/Navbar';
 import styles from '../../styles/customers.module.scss';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import customerApi from '../api/customerApi';
+import customerApi from '../../api/customerApi';
 const Customers = () => {
   const navigate = useNavigate();
 
   const handleRowClick = (customerId) => {
     navigate(`/listcus/${customerId}`); // Điều hướng tới trang chi tiết của khách hàng
   };
+  const token = window.localStorage.getItem("token");
   const [cusList, setCusList] = useState([])
   useEffect(() => {
     const fetchCus = async () => {
-      const emp = await customerApi.getAll();
+      const emp = await customerApi.getAll(token);
       setCusList(emp)
     }
     fetchCus();
@@ -29,6 +29,7 @@ const Customers = () => {
               <tr>
                 <th>Mã khách hàng</th>
                 <th>Tên khách hàng</th>
+                <th>Email</th>
                 <th>Điện thoại</th>
                 <th>Số đơn</th>
               </tr>
@@ -36,11 +37,12 @@ const Customers = () => {
             <tbody>
               {cusList.map((data) => {
                 return (
-                  <tr onClick={() => handleRowClick(data.customer_id)} className={styles.clickableRow}>
-                    <td>{data.customer_id}</td>
-                    <td>{data.name}</td>
-                    <td>{data.phone_number}</td>
-                    <td>{data.purchase_history === null ? 0 : data.purchase_history}</td>
+                  <tr onClick={() => handleRowClick(data.customerID)} className={styles.clickableRow}>
+                    <td>{data.customerID}</td>
+                    <td>{data.fullName}</td>
+                    <td>{data.email}</td>
+                    <td>{data.phoneNumber}</td>
+                    <td>{data.orderCount}</td>
                   </tr>
                 )
               })}
