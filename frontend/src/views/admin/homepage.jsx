@@ -112,7 +112,7 @@ function Home() {
                             labels: data.map((item) => item.day), // Sample labels
                             datasets: [
                                 {
-                                    label: "Doanh thu",
+                                    label: "Doanh thu (VND)",
                                     data: data.map((item) => item.total), // Sample data
                                     backgroundColor: "rgba(75,192,192,0.4)",
                                     borderColor: "rgba(75,192,192,1)",
