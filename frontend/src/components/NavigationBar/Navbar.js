@@ -19,18 +19,18 @@ function NavbarAdmin() {
 
 
         // Redirect to home or login page
-        navigate("/"); // Redirect to the homepage or any other page
+        navigate('/'); // Redirect to the homepage or any other page
     };
 
     return (
         <>
             <Header />
             <div className={styles.navbar}>
-                <div className={styles.home} onClick={() => navigate(`/${shop_id}`)}>
+                <div className={styles.home} onClick={() => navigate(`/admin/homepage`)}>
                     <FontAwesomeIcon icon={faHouse} />
                     <a> Nét</a>
                 </div>
-                <div className={styles.menu_item1} onClick={() => navigate(`/${shop_id}`)}>
+                <div className={styles.menu_item1} onClick={() => navigate(`/admin/homepage`)}>
                     <FontAwesomeIcon icon={faHouseChimneyWindow} />
                     <a> Tổng quan</a>
                 </div>
