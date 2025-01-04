@@ -26,11 +26,15 @@ function NavbarAdmin() {
         <>
             <Header />
             <div className={styles.navbar}>
-                <div className={styles.home} onClick={() => navigate(`/${shop_id}`)}>
+                <div className={styles.home} onClick={() => navigate("/admin/homepage")}>
                     <FontAwesomeIcon icon={faHouse} />
                     <a> Nét</a>
                 </div>
+<<<<<<< HEAD
                 <div className={styles.menu_item1} onClick={() => navigate(`/admin/homepage`)}>
+=======
+                <div className={styles.menu_item1} onClick={() => navigate("/admin/homepage")}>
+>>>>>>> fd3d681db9893f87bae16ef542f1de70a8f9d7df
                     <FontAwesomeIcon icon={faHouseChimneyWindow} />
                     <a> Tổng quan</a>
                 </div>
