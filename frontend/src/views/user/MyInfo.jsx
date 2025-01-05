@@ -30,7 +30,7 @@ function MyInfo() {
                 // Chuyển đổi ngày sinh từ [YYYY, MM, DD] thành chuỗi "DD/MM/YYYY"
                 const formattedDOB = `${result.dob[2].toString().padStart(2, '0')}/${result.dob[1].toString().padStart(2, '0')}/${result.dob[0]}`;
 
-                const gender = result.gender === "man"? "Nam" :(result.gender === "Nữ"? "Female" : "Không xác định");
+                const gender = result.gender === "man" ? "Nam" : (result.gender === "Nữ" ? "Female" : "Không xác định");
 
                 // Cập nhật userData
                 setUserData({
@@ -74,26 +74,29 @@ function MyInfo() {
                         <input type="text" id="dob" name="dob" value={userData.dob} readOnly tabIndex="-1">
                         </input>
                     </label>
-                    <label className={styles.component} style={{ left: '380px' }}>Tên
+                    <label className={styles.component} style={{ left: '650px' }}>Tên
                         <input type="text" id="lnam" name="lnam" value={userData.lastName} readOnly tabIndex="-1">
                         </input>
                     </label>
-                    <label className={styles.component} style={{ top: '144px', left: '380px' }}>SĐT
+                    <label className={styles.component} style={{ top: '144px', left: '650px' }}>SĐT
                         <input type="text" id="dob" name="dob" value={userData.phone} readOnly tabIndex="-1">
                         </input>
                     </label>
-                    <label className={styles.component} style={{ top: '240px', left: '380px', width: '100px' }}>Giới tính
+                    <label className={styles.component} style={{ top: '240px', left: '650px', width: '100px' }}>Giới tính
                         <input type="text" id="gender" name="gender" value={userData.gender} readOnly tabIndex="-1">
                         </input>
                     </label>
-                    <label className={styles.address}>Địa chỉ
+                    <label className={styles.component} style={{ top: '340px', width: '100px' }}>Địa chỉ
                         <input type="text" id="fname" name="fname" value={userData.address} readOnly
                             tabIndex="-1">
-                        </input>    
+                        </input>
                     </label>
                 </form>
             </div>
-            <Footer />
+            <div style={{ marginTop: '900px' }}>
+                <Footer />
+            </div>
+
         </>
     );
 }

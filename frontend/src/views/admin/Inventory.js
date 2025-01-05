@@ -25,7 +25,7 @@ const Inventory = () => {
   const handleQuantity = async (event, productID) => {
     event.preventDefault();
     try {
-      const quantity = document.getElementById("quantity").value;
+      const quantity = document.getElementById(`quantity`).value;
       const data = {
         productId: productID,
         quantity: parseInt(quantity, 10),
